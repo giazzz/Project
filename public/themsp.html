@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Themsp</title>
+	<link href="backend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="backend/vendor/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<form class="form_add" method="post" action="/save-products" enctype="multipart/form-data">
+			<h1 class="text-center">Them san pham</h1>
+			<div class="form-group">
+				<label>ID</label>
+				<input type="tel" name="id" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Name</label>
+				<input type="text" name="name" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Rating</label>
+				<input type="text" name="rating" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Description</label>
+				<input type="text" name="desc" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Type</label>
+				<input type="text" name="type" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Price</label>
+				<input type="tel" name="price" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Comment</label>
+				<textarea type="text" name="comment" class="form-control"></textarea>
+			</div>
+			<div class="form-group">
+				<label>Picture</label>
+				<input type="file" name="image" class="form-control">
+			</div>
+			<div class="form-group">
+				<button class="btn btn-danger" type="submit">Submit</button>
+			</div>
+		</form>
+		</div>
+	</div>
+	
+</body>
+</html>

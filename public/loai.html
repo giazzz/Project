@@ -1,0 +1,89 @@
+<script>
+	function xoahaykhong̣(tinnhan){
+  if(window.confirm(tinnhan)==true){
+    return true;
+  }
+    return false;
+}
+</script>
+<div class="row">
+	<div class="col-xs-12">
+	    <div class="col-xs-6">
+	        <h1 class="page-header pull-left">Loai</h1>
+	    </div>
+	    <div class="col-xs-6 page-header pull-right">
+			<div class="btn btn-info pull-right" >
+				<a class="fas fa-plus-circle" href="themloai.html">Them loai</a>
+			</div>
+		</div>
+ </div>
+ <div class="topnav col-xs-12">
+  		<div class="col-xs-2 text-center" style="background: green;color: white; font-size: 20px;"><h4>Tìm kiếm</h4></div>
+		<input class="col-xs-9" type="text" placeholder="Search.." ng-model = "tukhoa"></input>
+		<i class="fas fa-search col-xs-1"></i>
+	</div>
+<div class="row">
+<div class="col-xs-12">
+                    <div class="panel panel-default">
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-xs-1">ID</th>
+                                            <th class="col-xs-8 text-center">Type</th>
+                                            <th class="text-center col-xs-3">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="success" ng-repeat="type in types | filter:tukhoa">
+                                            <td>{{type.id}}</td>
+                                            <td>{{type.name}}</td>
+											<td class="text-center">
+			                                 	<!-- <a class="btn " ng-click="chuyen(product)" href="/sua/{{type.id}}"><i class="fas fa-pencil-alt">Edit</i></a>-->			             						
+			                                 	<a class="btn " href="/sua.html/{{type.id}}"><i class="fas fa-pencil-alt">Edit</i></a>
+			                                	&nbsp;&nbsp;
+			                                	<a class="btn" href="/xoa/{{type.id}}"><i class="fas fa-trash-alt">Delete</i></a>
+											</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+</div>
+<!-- <script>
+		//jQUERY AJAX
+		$(document).ready(function(){
+		        $.ajax({
+		        	url: "http://localhost:3003/type",
+		        	method: 'GET', 
+		        	success: function(result)
+		        	{
+		        	var type = result.data;
+		        	var html = '';
+						for (var i = 0; i < type.length; i++) {
+                                        <tr class="success">';
+                                            <td>'+type[i].id+'</td>';
+                                            <td>'+type[i].name+'</td>';
+											<td class="text-center">';
+                                            	<i class="fas fa-pencil-alt">Edit</i>';
+                                            	&nbsp;&nbsp;';		
+												<i class="fas fa-trash-alt">Delete</i>';
+											</td>';
+                                        </tr>';
+						}
+		            $("#div1").html(html);
+		        }});
+		});
+</script>
+ -->
+
+
+

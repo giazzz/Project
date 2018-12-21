@@ -1,0 +1,134 @@
+<div class="row">
+    <div class="col-lg-6">
+        <h1 class="page-header">SP 
+        <i class="fas fa-chevron-right" style="font-size: 30px;"></i> 
+    		{{loai}}</h1>
+    </div>
+    <div class="col-xs-6 page-header pull-right">
+			<div class="btn btn-info pull-right" >
+				<a class="fas fa-plus-circle" href="themsp.html">Them sp</a>
+			</div>
+		</div>
+</div>
+
+<!-- khung search -->
+
+	<div class="topnav col-xs-12">
+		<select class="col-xs-2" ng-init="loai = type[0]" 
+        						 ng-model="loai" 
+        						 ng-options="type.name for type in types">
+			<option value="ALL PRODUCTS">ALL</option>
+		  	<option value="volvo">VOL</option>
+		    <option value="saab">Saab</option>
+		    <option value="opel">Opel</option>
+		    <option value="audi">Audi</option>
+		</select>
+		<input class="col-xs-9" type="text" placeholder="Search.." ng-model = "key"></input>
+		<i class="fas fa-search col-xs-1"></i>
+	</div>
+
+
+
+<div class="row">
+	<div class="col-xs-12">
+        <div class="panel panel-default">
+            
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            	<div class="row">
+                                <th class="col-xs-1 text-center">ID</th>
+                                <th class="col-xs-3 text-center">Image</th>
+                                <th class="col-xs-1 text-center">Name</th>
+                                <th class="col-xs-1 text-center">Price</th>
+                                <th class="col-xs-1 text-center">Type</th>
+                                <th class="col-xs-1 text-center">Desc</th>
+                                <th class="col-xs-2 text-center">Comment</th>
+                                <th class="col-xs-1 text-center">Rating</th>
+                                <th class="text-center col-xs-1">Actions</th>
+								</div>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="product in products | filter: key" ng-init="product.hienra = true">
+								<tr class="success" ng-show="product.hienra">
+                                <!-- LOAD DU LIEU  -->
+                                <td>{{product.id}}</td>
+                                <td><img src="{{product.image_link}}" style="width: px; height: px;"></td>
+                                <td>{{product.name}}</td>
+                                <td>{{product.price}}</td>
+                                <td>{{product.type}}</td>
+                                <td>{{product.desc}}</td>
+                                <td>{{product.comment}}</td>
+                                <td>{{product.rating}}</td>
+								<td class="text-center">
+                                 	<b class="btn " ng-click="chuyen(product)"><i class="fas fa-pencil-alt">Edit</i></b>
+                                	&nbsp;&nbsp;
+                                	<a class="btn " href="/xoasp/{{product.id}}"><i class="fas fa-trash-alt">Delete</i></a>				
+								</td>
+							</tr>
+
+								<!-- SUA DU LIEU -->
+							<tr class="success" ng-show="!product.hienra">
+                                <td>{{product.id}}</td>
+                                <td><input type="text" class="form-control" ng-model ="product.image_link"/></td>
+                                <td><input type="text" class="form-control" ng-model ="product.name"/></td>
+                                <td><input type="text" class="form-control" ng-model ="product.price"/></td>
+                                <td><input type="text" class="form-control" ng-model ="product.type"/></td>
+                                <td><input type="text" class="form-control" ng-model ="product.desc"/></td>
+                                <td><textarea type="text" class="form-control" ng-model ="product.comment"></textarea></td>
+                                <td><input type="text" class="form-control" ng-model ="product.rating"/></td>
+								<td class="text-center">
+									<b class="btn " ng-click="sua(product)"><a class="fas fa-check-circle" href="/update">Save</a>	</b>		
+								</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+    </div>
+</div>
+
+<style>
+	td {
+		text-align: center;
+	}
+</style>
+
+<!-- <script>
+		//jQUERY AJAX
+		$(document).ready(function(){
+		        $.ajax({
+		        	url: "http://localhost:3003/all_product",
+		        	method: 'GET', 
+		        	success: function(result){
+		        	var product = result.data;
+		        	var html = '';
+						for (var i = 0; i < product.length; i++) {				
+                                        <tr class="success">';
+                                            <td>product[i].id</td>';
+                                            <td><img src="product[i].image_link" style="width: px; height: px;"></td>';
+                                            <td>product[i].name</td>';
+                                            <td>product[i].price</td>';
+                                            <td>product[i].type</td>';
+                                            <td>product[i].desc</td>';
+                                            <td>product[i].comment</td>';
+                                            <td>product[i].rating</td>';
+											<td class="text-center">';
+                                             	<i class="fas fa-pencil-alt">Edit</i>';
+                                            	&nbsp;&nbsp;';		
+												<i class="fas fa-trash-alt">Delete</i>';			
+											</td>';
+                                        </tr>';	
+						}
+		            $("#product1").html(html);
+		        }});
+		});
+</script> -->
+
