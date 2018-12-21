@@ -131,58 +131,57 @@ MongoClient.connect(url, function (err, db) {
 	    });
    });
 //sua du lieu loai
-	// app.get("/sua.html/:idloai",function(req,res,next){
-	// 	// res.send("idsp is set to " + req.params.idsp);
- //        var idcansua = req.params.idloai;
- //        res.send("ID can sua da lay dc = "+idcansua);
-	// 	//truy van du lieu co id can sua
-	// 	type.find({id:idcansua}).toArray(function (err, result) {
-	// 	      if (err) {
-	// 	        console.log(err);
-	// 	      } else if (result.length) {
-	// 	        console.log('Found:', result);
-	// 	      } else {
-	// 	        console.log('No document(s) found with defined "find" criteria!');
-	// 	      }
-	// 	    });
+	app.get("/sua/:idloai",function(req,res,next){
+		// res.send("idsp is set to " + req.params.idsp);
+        var idcansua = req.params.idloai;
+        res.send("ID can sua da lay dc = "+idcansua);
+		//truy van du lieu co id can sua
+		type.find({id:idcansua}).toArray(function (err, result) {
+		      if (err) {
+		        console.log(err);
+		      } else if (result.length) {
+		        console.log('Found:', result);
+		      } else {
+		        console.log('No document(s) found with defined "find" criteria!');
+		      }
+		    });
+		app.get("/typeedit", function(req,res){
+				type.find({id:idcansua}).toArray(function (err, result) {
+			      if (err) {
+			        res.send({
+			        	status: 0,
+			        	message:'fail'
+			        });
+			      } else {
+			        if (result.length){
+			        	res.send({
+				        	status: 0,
+				        	message:'Successfully!',
+				        	data: result
+			        	});
+			        }else{
+			        	res.send({
+				        	status: 0,
+				        	message:'Successfully!',
+				        	data: []
+			        	});
+			        }
+			      }
 
- //   });
- app.post("/update-products",upload.single("image"),function(req,res){
-        var originalFileName = req.file.originalname;
-        var id = req.body.id;
-        var name = req.body.name;
-        var rating = req.body.rating;
-        var desc = req.body.desc;
-        var type = req.body.type;
-		var price = req.body.price;
-		var comment = req.body.comment;
-        var image_link = "/uploads/"+originalFileName;
-        var product = {
-            id: id,
-            name: name,
-            rating: rating,
-            desc: desc,
-            type: type,
-            price: price,
-			comment: comment,
-            image_link: image_link
-        };
-        collection.update({id:id}, {$set: {name:name, rating:rating, desc:desc, type:type, price:price, comment:comment, image_link:image_link}}, function (err, updatedObj) {
-		  if (err) {
-			console.log(err);
-			res.send('error');
-		  } else if (updatedObj) {
-			if (updatedObj.result.nModified > 0){
-				console.log('Updated san pham sua Successfully');
-				res.send('Updated successfully');
-			}
-			else {
-				console.log('No record found');
-				res.send('No record found');
-			}
-		  }
-		});
-    });
+			    });
+		  	});
+		 app.post("/update-products",upload.single("image"),function(req,res){
+	        var name = req.body.name;
+	        // res.send(idcansua);
+	        type.updateOne({id:idcansua}, {$set: {id:idcansua, name:name}}, function (err,res) {
+		        if (err) throw err;
+		        // res.send('update success: ' + res.result.nModified + ' record');
+		        console.log('update success: ' + res.result.nModified + ' record');
+		    });
+	    });
+
+   });
+	//edit giang
 
  		
 //------------------------------------------------------------------------------------------

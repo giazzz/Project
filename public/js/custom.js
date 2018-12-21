@@ -18,7 +18,12 @@ app.config(['$routeProvider',function($routeProvider) {
 }]);
 
 app.controller("dataController",function($scope,$rootScope,$routeParams,$http){
-
+    $http.get('/typeedit').
+        then(function(result, status, headers, config) {
+          console.log('da get api');
+          console.log(result);
+          $rootScope.edits = result.data.data;
+        });
 });
 
 
@@ -29,6 +34,7 @@ app.controller("loaiController",function($scope,$rootScope,$routeParams,$http){
                   console.log(result);
                   $rootScope.types = result.data.data;
                 });
+              
 
 });
 
