@@ -1,0 +1,58 @@
+<header class="page-header">
+	<h2>Edit product</h2>
+	<div class="right-wrapper pull-right">
+		<ol class="breadcrumbs">
+			<li>
+				<a href="index.html">
+					<i class="fa fa-home"></i>
+				</a>
+			</li>
+			<li><span>Edit product</span></li>
+		</ol>
+		<b class="sidebar-right-toggle" data-open=""><i class=""></i></b>
+	</div>
+</header>
+	<div class="container" >
+		<div class="row" >
+			<form class="form_add" method="post" action="/update-products" enctype="multipart/form-data" ng-repeat="product in productedit">
+				<h1 class="text-center">Edit product</h1>
+				<div class="form-group">
+					<label>ID</label>
+					<input type="tel" name="id" class="form-control" value="{{product.id}}">
+				</div>
+				<div class="form-group">
+					<label>Name</label>
+					<input type="text" name="name" class="form-control" value="{{product.name}}">
+				</div>
+				<div class="form-group">
+					<label>Rating</label>
+					<input type="text" name="rating" class="form-control" value="{{product.rating}}">
+				</div>
+				<div class="form-group">
+					<label>Description</label>
+					<input type="text" name="desc" class="form-control" value="{{product.desc}}">
+				</div>
+				<div class="form-group">
+					<label>Type</label>
+					<input type="text" name="type" class="form-control" value="{{product.type}}">
+				</div>
+				<div class="form-group">
+					<label>Price</label>
+					<input type="tel" name="price" class="form-control" value="{{product.price}}">
+				</div>
+				<div class="form-group">
+					<label>Comment</label>
+					<textarea type="text" name="comment" class="form-control" value="">{{product.comment}}</textarea>
+				</div>
+				<div class="form-group">
+					<label>Picture</label>
+					<input type="file" name="image" class="form-control" value="{{product.image_link}}"></input>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-danger text-center col-xs-1" type="submit">Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+

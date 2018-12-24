@@ -1,0 +1,57 @@
+<header class="page-header">
+	<h2>Edit type</h2>
+	<div class="right-wrapper pull-right">
+		<ol class="breadcrumbs">
+			<li>
+				<a href="index.html">
+					<i class="fa fa-home"></i>
+				</a>
+			</li>
+			<li><span>Edit type</span></li>
+		</ol>
+		<b class="sidebar-right-toggle" data-open=""><i class=""></i></b>
+	</div>
+</header>
+<div class="container">
+	<div class="row" >
+		<form class="form_add" method="post" action="/sualoai" enctype="multipart/form-data" ng-repeat="edit in edits">
+			<h1 class="text-center">Edit type</h1>
+			<div class="form-group">
+				<label>ID</label>
+				<input type="tel" name="id" class="form-control" value="{{edit.id}}">
+			</div>
+			<div class="form-group">
+				<label>Name</label>
+				<input type="text" name="name" class="form-control" value="{{edit.name}}">
+			</div>
+			<div class="form-group">
+				<button class="btn btn-danger text-center col-xs-1" type="submit">Save</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- <script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery.ajax({
+			url: '/typeedit',
+			method: "GET",
+			success: function(result){
+				var xyz ='';
+				var type = result.data;
+				//console.log(students);
+				for (var i = 0; i < students.length; i++) {
+					xyz+=	'<tr>';
+					xyz+=		'<td>#'+students[i].id+'</td>';
+					xyz+=		'<td>'+students[i].mssv+'</td>';
+					xyz+=		'<td>'+students[i].student_name+'</td>';
+					xyz+=		'<td>'+students[i].birthday+'</td>';
+					xyz+=		'<td>'+students[i].class_id+'</td>';
+					xyz+=	'</tr>';
+				}
+				jQuery("#list_students").append(xyz);	
+			}
+		});
+	});
+</script>
+ -->
