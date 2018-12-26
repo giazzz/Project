@@ -30,7 +30,6 @@ body{
 }
 li{
 	list-style: none;
-
 }
 .category {
 	padding-bottom: 20px;
@@ -49,14 +48,36 @@ li{
 	color: #23527c;
 	text-decoration: none;
 }
-
-
-
 #b{
 	padding: 0 0 20px 0;
 }
 #b1{
 	padding: 0 ;
+}
+#b1a{
+	padding: 0 ;
+}
+#b1b{
+	display: none;	
+}
+@media screen and (max-width: 993px){
+	#b1b{
+		display: inline-block;
+		padding: 0 !important;
+		font-size: 18px;
+		color: #333;
+		position: relative;
+	}
+	.rightc{
+		display: none;
+		position: absolute;
+		z-index: 11;
+		background-color: #fff;
+		width: 100%;
+		border: 1px solid #73b043;
+		border-radius: 5px;
+		padding: 15px 0 0 15px;
+	}
 }
 #b2{
 	padding: 15px 0;
@@ -65,7 +86,6 @@ li{
 	background-color: #fcfcfc !important;
 	padding: 0px !important;
 	font-size: 18px !important;
-
 }
 #b2a{
 	padding-right: 0px;
@@ -79,15 +99,16 @@ li{
 }
 #b2ba{
 	padding: 0;
+	color: #73b043 !important;
 }
 #b2bb{
 	padding: 0px;
 	font-size: 18px;
 }
-#list{
+#grid{
 	padding: 0;
 }
-#clickdetail{
+#clicklist{
 	opacity: 0.5;
 }
 .addtocart{
@@ -110,6 +131,10 @@ li{
 	outline: none;
 	display: none;
 }
+#atc{
+	font-size: 20px;
+	padding-left: 10px;
+}
 #sortbutton{
 	background-color: #fff !important;
 	border-radius: 5px !important;
@@ -124,7 +149,7 @@ li{
 }
 .sortslide{
 	margin-top: 5px;
-	border: 1px solid #73b043;
+	border: 1px solid #f4f6f8;
 	border-radius: 5px;
 	position: absolute;
 	width: 100%;
@@ -140,111 +165,59 @@ li{
 .sm1{
 	padding: 5px 0;
 }
-.keogian{
-	background: #fff;
-	height: 1440px;
-	border: 1px solid #f4f6f8;
-}
-#listitem{
-	border-left:  1px solid #f4f6f8;
-	border-bottom:   1px solid #f4f6f8;
+.griditem{
+	border:  1px solid #f4f6f8;
 	height: 450px;
-	padding: 0px;
+	padding: 0px !important;
+	background-color: #fff;
 }
 .item{
 	width: 100%;
-	padding: 30px;
+	padding: 15px;
 	background: #fff;
 	height: 100%;
+}
+.image{
+	padding: 15px 0 !important;
 }
 #image{
 	height: 152px;
 }
-#fig{
+.fig{
 	color: #000615;
 	font-size: 20px;
-	padding: 15px 0;
+	padding-bottom: 15px;
 	height: 100px;
+}
+.item-content2{
+	padding: 0 ;
 }
 #fig1{
 	color: #000615;
 	font-size: 24px;
 	padding-bottom: 15px;
 }
-#detail{
+.des{
 	display: none;
-	padding: 0;
-}
-#detailitem{
-	background-color: #fff;
-	padding: 0;
-	height: 200px;
-	border-left:  1px solid #f4f6f8;
-	border-bottom:   1px solid #f4f6f8;
 }
 #piece{
 	padding: 0 ;
 	color: #797979;
 }
 
-#rating{
-	padding-top: 15px;
+@media screen and (min-width: 768px){
+	.container{
+		width: 90% !important;
+	}
 }
-.keo{
-	height: 2250px;
-	border-top: 1px solid #f4f6f8;
-	border-right:1px solid #f4f6f8;
-}
-
-#detailitem .col-xs-3 .text-center img{
-	padding-top: 25px;
-}
-#detailitem .col-xs-6 .rating{s
-	padding-top: 30px !important;
-}
-#fig2{
-	color: #000615;
-	font-size: 20px;
-	height: 90px;
-	padding-top: 30px;
-}
-.right{
-	padding-top: 50px;
-}
-.addtocart1{
-	color: #fff;
-	background-color: #73b043 !important;
-	border-radius: 400px !important;
-	border: 1px solid;
-	height: 60px;
-	outline: none;
-}
-.viewcart1{
-	background-color: #fff !important;
-	border-radius: 400px !important;
-	border: 1px solid;
-	border-color: #73b043 !important;
-	color: #73b043 !important;
-	height: 60px;
-	outline: none;
-	display: none;
-}
-@media screen and (max-width: 767px){
+@media screen and (max-width: 768px){
 	#b2a{
 		text-align: center;
 	}
 }
 @media screen and (max-width: 500px){
-	#listitem{
+	.griditem{
 		width: 100% !important;
-	}
-}
-@media screen and (max-width: 580px){
-	#detailitem{
-		height: 250px !important;
-	}
-	#fig2{
-		height: 100px !important;
 	}
 }
 @media screen and (max-width: 400px){
