@@ -19,6 +19,8 @@ body{
 .section1{
 	padding-top: 40px;
 }
+
+
 .leftc-title{
 	font-weight:  600;
 	font-size: 24px ;
@@ -112,7 +114,7 @@ li{
 	opacity: 0.5;
 }
 .addtocart{
-	width: 100%;
+	width: 155px;
 	height: 60px;
 	background-color: #73b043 !important;
 	border-radius: 400px !important;
@@ -121,7 +123,7 @@ li{
 	color: #fff;
 }
 .viewcart{
-	width: 100%;
+	width: 155px;
 	height: 60px;
 	background-color: #fff !important;
 	border-radius: 400px !important;
@@ -141,9 +143,11 @@ li{
 	border: 1px solid #f4f6f8  ;
 	height: 40px;
 	outline: none;
-	width: 100%;
+	width: 190px;
 }
 .sort{
+	float: right;
+	width: 190px;
 	color: #73b06c;
 	position: relative;
 }
@@ -152,7 +156,7 @@ li{
 	border: 1px solid #f4f6f8;
 	border-radius: 5px;
 	position: absolute;
-	width: 100%;
+	width: 190px;
 	z-index: 10;
 	background: #fff;
 	display: none;
@@ -160,7 +164,7 @@ li{
 }
 .sortmenu{
 	margin: 0;
-	padding-left: 35px;
+	padding-left: 10px;
 }
 .sm1{
 	padding: 5px 0;
@@ -205,11 +209,7 @@ li{
 	color: #797979;
 }
 
-@media screen and (min-width: 768px){
-	.container{
-		width: 90% !important;
-	}
-}
+
 @media screen and (max-width: 768px){
 	#b2a{
 		text-align: center;
@@ -220,8 +220,11 @@ li{
 		width: 100% !important;
 	}
 }
-@media screen and (max-width: 400px){
-	#sortbutton{
-		height: 60px;
+@media screen and (max-width: 600px){
+	#image{
+		height: 100px;
+	}
+	.image{
+		padding: 30px 0 !important;
 	}
 }

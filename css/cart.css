@@ -1,0 +1,25 @@
+.cart-update-alert{
+	border-top: 3px solid #73b043;
+	height: 60.6px;
+	padding: 16px 32px 16px 56px;
+	margin-bottom: 32px;
+	background-color: #f7f6f7;
+	color: #515151;
+	display: none;
+}
+.cart-table-top , .cart-table-mid , .cart-table-bottom{
+	background-color: white;
+	border: 1px solid #0000001a;
+	border-collapse: separate;
+}
+.cart-table-top{
+	height: 41.6px;
+	border-radius: 5px 5px 0px 0px;
+}
+.cart-table-mid{
+	height: 108px;
+}
+.cart-table-bottom{
+	height: 67.2px;
+	border-radius: 0px 0px 5px 5px;
+}

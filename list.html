@@ -89,10 +89,8 @@
 							<span id="clicklist"><i class="fas fa-list-ul"></i></span>
 						</div>
 						<div class="col-sm-8 col-xs-6" id="b2bb">
-							<div class="text-right">
-								<div class="sort" onclick="opensort()">
-									<button id="sortbutton">Sort by popularity&ensp;<i class="fas fa-sort"></i></button>
-								</div>
+							<div class="sort" onclick="opensort()">
+								<button id="sortbutton">Sort by popularity&ensp;<i class="fas fa-sort"></i></button>
 								<div class="sortslide">
 									<div class="text-left">
 										<ul class="sortmenu">
@@ -419,8 +417,28 @@
 				$(".rightc").slideToggle(500);
 				$(".sectionfader").show();
 			});
-			
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var floatDiv = $("#leftc");
+				var floatDivPosition = floatDiv.position();
+				$(window).scroll(function(){
+					var scrollPosition = $(window).scrollTop();
+					if (scrollPosition >= floatDivPosition.top){
+						floatDiv.css({
+							"position": "fixed",
+							"top": 40
+						});
+					}else{
+						floatDiv.css({
+							"postion": "relative",
+							"top": 0
+						});
+					}
+				});
+			});
 		</script>
 	</div>
+	
 	<footer></footer>
 </body>
