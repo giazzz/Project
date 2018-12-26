@@ -56,6 +56,8 @@ body::-webkit-scrollbar {
 }
 .body{
 	background-color: #fcfcfc;
+	padding-bottom: 90px;
+	padding-top: 60px;
 }
 .footer{
 	background-color: white;
@@ -82,17 +84,18 @@ body::-webkit-scrollbar {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	width: 100%;
+	height: 80px;
 }
 .logo.headbar{
 	width: 77%;
 }
 .cart{
 	width: 13%;
-	margin-top: 2.5%;
+	margin-top: 10px;
 }
 .menu{
 	width: 10%;
-	margin-top: 2.5%;
+	margin-top: 10px;
 }
 .headbar{
 	float: left;
@@ -112,6 +115,7 @@ body::-webkit-scrollbar {
 	border: none;
 }
 .dropmenu-mobile{
+	top: 80px;
 	border-radius: 4px;
 	left: 0;
 	width: 100%;
@@ -166,6 +170,7 @@ body::-webkit-scrollbar {
 	color: #73b043 !important;
 }
 .cartlistmobile{
+	top: 80px;
 	border-radius: 4px;
 	right: 5%;
 	width: 290px;
@@ -220,15 +225,6 @@ body::-webkit-scrollbar {
 	text-align: center;
 }
 @media screen and (max-width: 766px){
-	.header-mobile-tablet{
-		height: 80px;
-	}
-	.dropmenu-mobile{
-		top: 80px;
-	}
-	.cartlistmobile{
-		top: 80px;
-	}
 	.slogan{
 		padding-top: 20px;
 		padding-bottom: 20px;
@@ -250,15 +246,6 @@ body::-webkit-scrollbar {
 	}
 	.tnp-email{
 		width: 82%;
-	}
-	.header-mobile-tablet{
-		height: 105px;
-	}
-	.dropmenu-mobile{
-		top: 105px;
-	}
-	.cartlistmobile{
-		top: 105px;
 	}
 }
 @media screen and (min-width: 991px){

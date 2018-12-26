@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>header & footer demo</title>
+    <title>Cart</title>
 	<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
 	<link rel="stylesheet" href="css/header&footer.css">
+	<link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"/>
 	<script src="js/jquery.js"></script>
@@ -206,10 +207,42 @@
 	</div>
 	
 	
-	<div class="body section">
-																<!--Đối với giao diện laptop-desktop các thẻ trong này dùng class container không dùng container-fluid, 
-																container-fluid là để set background cho trang web-->
-																<!--Đối với giao diện mobile-tablet các thẻ trong này dùng class container-fluid-->
+	<div class="body section"> 
+		<section class="cartlist-full-detail-laptop-desktop hidden-sm hidden-xs container">
+			<div class="cart-update-alert col-lg-12 col-md-12">
+				<p><span class="green"><i class="fas fa-check-circle"></i></span>&nbsp;&nbsp;Cart updated.</p>
+			</div>
+			<div class="row cart-table-top">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-5">
+				</div>
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-2">
+				</div>
+			</div>
+			
+			<div class="row cart-table-mid">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-5">
+				</div>
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-2">
+				</div>
+			</div>
+			
+			<div class="row cart-table-bottom"></div>
+		</section>
+		<section class="cartlist-full-detail-mobile-tablet hidden-md hidden-lg container-fluid">
+		
+		</section>
 	</div>
 	
 	
