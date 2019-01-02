@@ -468,7 +468,7 @@ body::-webkit-scrollbar {
 }
 .inside-list{
 	border: 1px solid #efefef;
-	margin: 6px 0px 0px 0xp;
+	margin: 6px 0px 0px 0px;
 	padding: 0; 
 	list-style: none;
 	position: relative;
@@ -558,6 +558,7 @@ a#submit { z-index: 1; }
 	animation-fill-mode: forwards;
 	animation-name: bgccb;
 	-webkit-animation-name: bgccb;
+	cursor: pointer;
 }
 .cart-button:hover{
 	animation-name: bgcc;
@@ -620,18 +621,31 @@ a#submit { z-index: 1; }
 }
 .mini-cart-navigation{
 	height: 53.6px;
-	width: 140xp;
+	width: 110px;
 	background-color: #73b043;
-	border-radius: 5px;
+	border-radius: 10px;
 	text-align: center;
-	line-height: 53px;
-	padding: 0 20px;
+	line-height: 52.6px;
+	border: 0.5px solid #73b043;
+	-webkit-transition: all 0.7s ease;
+	-moz-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+	cursor: pointer;
 }
 .mini-cart-navigation a{
+	width: 100%;
+	height: 100%;
 	color: white;
+	-webkit-transition: all 0.7s ease;
+	-moz-transition: all 0.7s ease;
+	transition: all 0.7s ease;
 }
-
-
+.mini-cart-navigation:hover{
+	background-color: white;
+}
+.mini-cart-navigation:hover a{
+	color: #73b043;
+}
 /*#ffcd48;  #ffd559;*/
 @-webkit-keyframes bgcc {
   from {background-color: #ffcd48}
