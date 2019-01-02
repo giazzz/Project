@@ -86,6 +86,9 @@
 		width: 100% !important;
 		margin: 0px !important;
 	}
+	.custom-communication-wrapper{
+		min-height: 172px !important;
+	}
 }
 @media screen and (min-width: 1200px){
 	.banner-content h2{
@@ -120,6 +123,9 @@
 		background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), #fff);
 		background-image: linear-gradient(left, rgba(0, 0, 0, 0), #fff);
 		filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0, 0, 0, 0)', endColorStr='#fff', gradientType='1');
+	}
+	.custom-communication-wrapper{
+		min-height: 150px !important;
 	}
 }
 @media screen and (min-width: 15-0px){
@@ -255,17 +261,46 @@
 
 
 
-
-
+.custom-communication{
+	margin-top: 80px;
+}
+.custom-communication-wrapper{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 5px;
+	background: white;
+	margin-bottom: 30px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
 .custom-communication-bar{
 	float: left;
+	display: inline-block;
 }
 .faq-icon{
-	width: 38px;
-	margin-right: 20px;
+	width: 15%;
+	margin-right: 5%;
+	padding-top: 10px;
 }
 .custom-communication-inner{
-	width: calc(100% - 58px);
+	width: 80%;
+}
+.custom-communication-title{
+	color: #73b043;
+	font-size: 22px;
+	font-weight: 500;
+}
+.custom-communication-detail{
+	display: inline-block;
+	color: #949494
+}
+.custom-communication-detail a, .custom-communication-detail a:hover,
+.custom-communication-detail a:focus, .custom-communication-detail a:visited{
+	color: #949494;
+	font-style: italic;
+	font-weight: 100;
+}
+.custom-communication-detail-email{
+	text-decoration: underline !important;
 }
 
 
