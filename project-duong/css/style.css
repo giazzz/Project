@@ -1,0 +1,26 @@
+.header1{
+	position: fixed;
+	background: #fff;
+	text-align: center;
+	z-index: 10;
+	top: 0;
+	left: 0;
+}
+.header1 .text{
+	font-size: 30px;
+	color: black;
+}
+.header1 p{
+	font-size: 13px;
+	color: black;
+}
+.list{
+	padding-top: 200px;
+}
+.list .contact{
+	padding-top: 30px;
+	border: 1px solid #810000;
+	border-radius: 10px;
+	left: 0;
+	z-index: 7; 
+}

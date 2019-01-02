@@ -1,0 +1,18 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sun, 16 Dec 2018 16:41:58 at http://demo.cmssuperheroes.com/themeforest/raworganic/home/ +*.png +*.jpg +*.jpeg
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://demo.cmssuperheroes.com/themeforest/raworganic/home/ -O1 "E:\html exame\eproject\do" +*.png +*.jpg +*.jpeg )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+16:49:16	Error: 	"Receive Time Out" (-2) after 2 retries at link demo.cmssuperheroes.com/robots.txt (from primary/primary)
+16:51:45	Warning: 	Retry after error -4 (No data (connection closed)) at link demo.cmssuperheroes.com/themeforest/raworganic/home/?add-to-cart=548 (from demo.cmssuperheroes.com/themeforest/raworganic/home/)
+16:51:45	Warning: 	Retry after error -4 (No data (connection closed)) at link demo.cmssuperheroes.com/themeforest/raworganic/wp-content/uploads/2018/08/The-Cherry-Tree-Morello-Cherry-Extra-Jam-113x143.png (from demo.cmssuperheroes.com/themeforest/raworganic/home/)
+16:52:01	Warning: 	Retry after error -4 (No data (connection closed)) at link demo.cmssuperheroes.com/themeforest/raworganic/wp-content/uploads/2018/08/recipe8-680x380.jpg (from demo.cmssuperheroes.com/themeforest/raworganic/home/)
+16:52:01	Warning: 	Retry after error -4 (No data (connection closed)) at link demo.cmssuperheroes.com/themeforest/raworganic/wp-content/uploads/2018/07/Organic-Raw-Almond-Nut-Butter.png (from demo.cmssuperheroes.com/themeforest/raworganic/home/)
+16:52:03	Warning: 	Retry after error -4 (No data (connection closed)) at link demo.cmssuperheroes.com/themeforest/raworganic/home/?add-to-cart=389 (from demo.cmssuperheroes.com/themeforest/raworganic/home/)
+16:52:03	Warning: 	Retry after error -4 (No data (connection closed)) at link demo.cmssuperheroes.com/themeforest/raworganic/wp-content/uploads/2018/09/testimonial3.jpg (from demo.cmssuperheroes.com/themeforest/raworganic/home/)
+
+HTTrack Website Copier/3.49-2 mirror complete in 10 minutes 11 seconds : 73 links scanned, 66 files written (7552248 bytes overall) [2692043 bytes received at 4405 bytes/sec], 5462213 bytes transferred using HTTP compression in 20 files, ratio 10%, 3.8 requests per connection
+(1 errors, 6 warnings, 0 messages)

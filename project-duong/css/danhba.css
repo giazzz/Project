@@ -1,0 +1,16 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	width: 100%;
+	float: left;
+	background: #f4f6f8;
+	color: black;
+	font-size: 15px;
+}
+div{
+	width: 100%;
+	float: left;
+	margin-left: 10px; 
+}
