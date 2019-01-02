@@ -3,7 +3,7 @@
 }
 body{
 	font-family: 'Bree Serif', serif !important;
-	background: #fcfcfc !important;
+	background: #fcfcfc;
 }
 .sectionfader{
 	position: fixed;
