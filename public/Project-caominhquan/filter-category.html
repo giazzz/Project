@@ -1,0 +1,122 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+<html ng-app="app">
+
+    <body ng-controller="main">
+        <a ng-click="filters.category = ''">clear filter</a>
+        <div ng-repeat="fruit in fruits | filter:filters">
+            <strong>{{fruit.name}}</strong>
+  
+        </div>
+        <div ng-repeat="ca in cat">
+            <a ng-click="filters.category = ca.cate">{{ca.cate}}</a>
+        </div>
+
+
+
+
+<!-- <div>{{ten}}</div> -->
+<ul>
+    <li><a href=""></a></li>
+</ul>
+
+
+<select size="20" ng-model="ten">
+  <option value="name1">Not Started</option>
+  <option selected value="name2">In Progess</option>
+  <option value="name3">Completed</option><option value="name1">Not Started</option>
+
+</select>
+
+<input type="checkbox" ng-model="ten1" ng-true-value="'haha'">c1</input>
+<input type="checkbox" ng-model="ten1" ng-true-value="'hahaha'">c2</input>
+<div>{{ten1}}</div>
+
+
+
+<label for="mycheck1">Check1</label>
+<input type="checkbox" id="mycheck1" ng-true-value="'hai'"  ng-false-value='0'  ng-model="val" style="display: none;"></input>
+<label for="mycheck2">Check1</label>
+<input type="checkbox" id="mycheck2" ng-true-value="'ba'"  ng-false-value='0'  ng-model="val" style="display: none;"></input>
+   <br>Seleted Value :{{val}}</br>
+
+<style>
+    select{
+    border:none;
+    overflow:auto;
+    width: 150px;
+}
+select:focus{
+    border: none !important;
+}
+select:active{
+    border: none;
+}
+option:focus{
+    border: none !important;
+}
+option:active{
+    border: none;
+}
+</style>
+
+
+
+<div ng-repeat="kind in movieKinds">
+    <input type="radio" name="movies" ng-value="kind" ng-model="kindSelected"> {{kind.name}}<br>
+</div>
+Selected Movie :{{model.kindSelected}}
+<script>
+    
+    mymodule.controller('MainCtrl', [ '$scope',function ($scope) {
+    $scope.model = {};
+
+    $scope.movieKinds = [
+        {'name' : 'Action', 'movies' : ['Action#1', 'Action#2', 'Action#3']},
+        {'name' : 'Comedy', 'movies' : ['Comedy#1', 'Comedy#2', 'Comedy#3']},
+        {'name' : 'Drama', 'movies' : ['Drama#1', 'Drama#2']},
+        {'name' : 'Horror', 'movies' : ['Horror#1']}
+    ];
+
+}]);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
+<script>
+	var app = angular.module('app', []);
+
+app.controller('main', function($scope) {
+    $scope.filters = { };
+    
+    $scope.fruits = [
+        {name: 'Apple', category: 'Fruit'},
+        {name: 'Pear', category: 'Fruit'},
+        {name: 'Almond', category: 'Nut'},
+        {name: 'Mango', category: 'Fruit'},
+        {name: 'Cashew', category: 'Nut'}
+    ];
+    $scope.cat = [
+      
+        {cate: 'Fruit'},
+        {cate: 'Nut'},
+      
+    ];
+});
+</script>
+<style>
+	body { padding: 20px; }
+div, a { margin: 5px; }
+</style>
