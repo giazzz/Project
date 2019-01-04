@@ -2,7 +2,12 @@ body{
 	color: #282828 !important;
 	font-family: 'Bree Serif' !important;
 	font-size: 16px !important;
-	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 input[type="text"]{
 	border: none !important;
@@ -320,6 +325,9 @@ body::-webkit-scrollbar {
 .bottom-navigation a{
 	color: #8e8e8e;
 	line-height:  1.857;
+}
+.bottom-navigation a:hover, .bottom-navigation a:focus, .bottom-navigation a:visited{
+	color: #73b043;
 }
 .slogan{
 	background-color: #f1f7ec;
@@ -689,6 +697,7 @@ a#submit { z-index: 1; }
 	line-height: 50px;
 	font-size: 19px !important;
 	text-align: center !important;
+	cursor: pointer;
 }
 .lower-header-laptop-desktop .Home-link a{
 	color: #73b043;
@@ -767,12 +776,41 @@ a#submit { z-index: 1; }
 .copyright{
 	margin-top: 10px; 
 }
+.copyright a, .copyright a:hover, .copyright a:visited, .copyright a:focus{
+	color: #73b043;
+}
 
 
 
 
-
-
+.cartlaptop-cover{
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	opacity: 0;
+	z-index: 3;
+	position: fixed;
+	display: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+.menulaptop-cover{
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	opacity: 0;
+	z-index: 3;
+	position: fixed;
+	display: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
 
 
 

@@ -1,6 +1,11 @@
 	$(document).ready(function(){
 		$(".init").click(function(){
 			$(".inside-list").slideToggle(700);
+			$(".menulaptop-cover").toggle();
+		});
+		$(".menulaptop-cover").click(function(){
+			$(".inside-list").slideToggle(700);
+			$(".menulaptop-cover").toggle();
 		});
 		var allOptions = $(".inside-list").children('.option:not(.init)');
 		$(".list-unstyled").on("click", ".option:not(.init)", function() {
@@ -41,6 +46,11 @@
 	$(document).ready(function(){
 		$(".cart-button").click(function(){
 			$(".cartlist").slideToggle(700);
+			$(".cartlaptop-cover").toggle();
+		});
+		$(".cartlaptop-cover").click(function(){
+			$(".cartlist").slideToggle(700);
+			$(".cartlaptop-cover").toggle();
 		});
 		$(".togglecartmobile").click(function(){
 			$(".cartlistmobile").slideToggle(700);
