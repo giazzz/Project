@@ -1,0 +1,6 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+demo.cmssuperheroes.com	TRUE	/themeforest/raworganic/	FALSE	1999999999	woocommerce_items_in_cart	1
+demo.cmssuperheroes.com	TRUE	/themeforest/raworganic/	FALSE	1999999999	woocommerce_cart_hash	7883d517941145b71b73d14a55cd3f2b
+demo.cmssuperheroes.com	TRUE	/themeforest/raworganic/	FALSE	1999999999	wp_woocommerce_session_9deef03c2f0ff0fdcc79e3f0f046806f	a39b8b58cbc333a567bbdc09f9b7da83%7C%7C1545126621%7C%7C1545123021%7C%7C1cdee0a246da75376519702177fca369
+
