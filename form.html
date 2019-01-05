@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/angular.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery/jquery.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/bootstrap.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/fontawesome/css/fontawesome.css">
+</head>
+
+<style>
+.required-field::after {
+    content: "*";
+    color: red;
+}
+.hiding{
+	display:none;
+}
+.form-alert{
+	color:red;
+	font-size:18px;
+}
+.form-control:focus {
+  border-color: rgb(5, 206, 32);
+  box-shadow: inset 0 1px 1px rgba(8, 8, 8, 0.075), 0 0 8px rgba(10, 243, 22, 0.8);
+}
+</style>
+
+<body>
+    <div class="container">
+        <h1>Billing Details</h1>
+        <form method="post-get" action="#" name="form_data" enctype="multipart/form-data">
+        <div class="row">
+            <div class="form-group col-md-6">
+            <label class="required-field" for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+            <p class="form-alert hiding">Please enter your first name</p>
+            </div>
+            <div class="form-group col-md-6">
+            <label class="required-field" for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+            <p class="form-alert hiding">Please enter your last name</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="required-field" for="address">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="Your address" required>
+            <p class="form-alert hiding">Address is required</p>
+        </div>
+        <div class="form-group">
+            <label class="required-field" for="phone">Phone</label>
+            <input type="text" class="form-control" pattern="[0-9]+" id="phone" placeholder="Your phone number" required>
+            <p class="form-alert hiding">Phone number is required</p>
+        </div>
+        <div class="form-group">
+            <label class="required-field" for="email">Email Address</label>
+            <input type="text" class="form-control" id="email" placeholder="Your email address" required>
+            <p class="form-alert hiding">Email is required</p>
+        </div>
+        <div class="form-group">
+            <label for="additionalInfo">
+                <h2>Additional information</h2>
+                <p>Order notes (optional)</p>
+            </label>
+            <input type="text" class="form-control" id="additionalInfo" placeholder="Notes about your order, e.g. special notes for delivery.">
+        </div>
+
+        <h1>Your Order</h1>
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Product01</td>
+                    <td>Product01.Price</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Subtotal</th>
+                    <td>$$$</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Total</th>
+                    <td>$$$</td>
+                  </tr>
+                </tbody>
+        </table>
+
+        <h1>Billing Methods</h1>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="radios" id="radio1" value="option1" checked>
+            <label class="form-check-label" for="radio1">
+              Direct bank transfer
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="radios" id="radio2" value="option2">
+            <label class="form-check-label" for="radio2">
+              PayPal
+            </label>
+        </div>
+        
+        <button type="submit" class="btn btn-success" onclick="return checkForm()">Place order</button>
+        </form>
+
+    </div>
+
+<script>
+function checkForm() {
+			var firstName = document.forms["form_data"].firstName.value;
+            var lastName = document.forms["form_data"].lastName.value;
+            var address = document.forms["form_data"].address.value;
+            var phone = document.forms["form_data"].phone.value;
+            var email = document.forms["form_data"].email.value;
+
+			if(email.length >0){
+				return true;
+			}else{
+				if(email.length <=0){
+					document.forms["form_data"].email.nextElementSibling.style.display = "block";
+				}
+				if(email.length >0){
+					if(document.forms["form_data"].email.nextElementSibling){
+						document.forms["form_data"].email.nextElementSibling.remove();
+					}
+				}
+				
+				if(firstName.length <=0){
+					document.forms["form_data"].firstName.nextElementSibling.style.display = "block";
+				}
+				if(firstName.length >0){
+					if(document.forms["form_data"].firstName.nextElementSibling){
+						document.forms["form_data"].firstName.nextElementSibling.remove();
+					}
+				}
+
+                if(lastName.length <=0){
+					document.forms["form_data"].lastName.nextElementSibling.style.display = "block";
+				}
+				if(lastName.length >0){
+					if(document.forms["form_data"].lastName.nextElementSibling){
+						document.forms["form_data"].lastName.nextElementSibling.remove();
+					}
+				}
+				
+				if(phone.length <=0){
+					document.forms["form_data"].phone.nextElementSibling.style.display = "block";
+				}
+				if(phone.length >0){
+					if(document.forms["form_data"].phone.nextElementSibling){
+						document.forms["form_data"].phone.nextElementSibling.remove();
+					}
+				}
+
+                if(address.length <=0){
+					document.forms["form_data"].address.nextElementSibling.style.display = "block";
+				}
+				if(address.length >0){
+					if(document.forms["form_data"].address.nextElementSibling){
+						document.forms["form_data"].address.nextElementSibling.remove();
+					}
+				}
+			}
+		
+			return false;
+        }
+</script>
+
+</body>
+</html>
