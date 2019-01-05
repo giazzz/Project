@@ -1,0 +1,183 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+  font-family: 'Roboto', sans-serif; !important
+}
+body{
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	line-height: 1.15;
+	color: #34404b;
+	background:#f2f2f2; 
+}
+/* Add a black background color to the top navigation bar */
+
+.topnav {
+  background-color: #34495e;
+  height: 40px;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav select {
+  float: left;
+  height: 100%;
+  font-size: 20px;
+  color: white;
+  background: green;
+  border:none;
+}
+
+.topnav input[type=text] {
+  border: none;
+  font-size: 17px;
+  height: 70%;
+  margin-top: 6px;
+  border-radius: 10px;
+
+}
+.topnav i{
+	color: white;
+	font-size: 20px;
+	margin-top: 10px;
+}
+.table_tbody{
+  background: #27293d; 
+}
+.type{
+    margin-bottom: 10px;
+}
+.pagination {
+  font-size: 16px;
+  color: #80838a;
+}
+html .pagination > li.active a {
+  
+    background-color: white;
+    border-color: green;
+}
+html .pagination > li.active:hover a:hover{
+  border: 2px solid green;
+  /*background-color: white;*/
+}
+html .pagination > li.active a:focus{
+  border: 2px solid green;
+  /*background-color: white;*/
+}
+html .pagination > li:hover a:hover{
+  border: 2px solid green;
+  /*background-color: white;*/
+  color:green;
+}
+.pagination {
+  /*tu them*/
+  font-family: 'Bree Serif', serif !important;
+  font-weight: 600;
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.pagination > li {
+  display: inline;
+  /*tu them*/
+  border-radius: 100%;
+
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  /*color: #428bca;*/
+  color: #80838a;
+  /*background-color: #ffffff;*/
+  border: 1px solid #dddddd;
+  margin-left: -1px;
+  /*tu them*/
+  border-radius: 100%;
+  margin-right: 10px;
+  border:none;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  color: green;
+  margin-left: 0;
+  border: 2px solid green;
+  /*border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;*/
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  color: green;
+  border: 2px solid green;
+  /*border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;*/
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  color: green;
+  /*background-color: #eeeeee;*/
+  /*border-color: #dddddd;*/
+  border: 2px solid green;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 2;
+  color: green;
+  /*background-color: #428bca;*/
+  /*border-color: #428bca;*/
+  cursor: default;
+  border:2px solid green;
+  /*background-color: white;*/
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777777;
+  /*background-color: #ffffff;*/
+  border-color: #dddddd;
+  cursor: not-allowed;
+}
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+  padding: 10px 16px;
+  font-size: 18px;
+}
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
