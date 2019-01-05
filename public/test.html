@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"/>
+	<!-- <link rel="stylesheet" href="css/header&footer.css"> -->
+	<!-- <link rel="stylesheet" href="css/Bill-Order.css"> -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Them -->
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/angular-animate.js"></script>
+	<script type="text/javascript" src="js/dirPagination.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+
+	<script src="js/header&footer.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="dataController">
+	
+	
+	<div class="container">
+		<!-- OK -->
+		<div class="row">
+			<input type="radio" ng-model="pay" ng-value='"Bank"' class="col-xs-6" ng-selected="payment()" id="1">
+			<label for="1">Bank</label>
+
+			<input type="radio" ng-model="pay" ng-value='"Paypal"' class="col-xs-6" ng-selected="payment()" id="2">
+			<label for="2">Paypal</label>
+		</div>
+	</div>
+
+	
+	
+	
+	
+
+</body>
+
+</html>
+<script>
+	// Get current date
+	n =  new Date();
+	y = n.getFullYear();
+	m = n.getMonth() + 1;
+	d = n.getDate();
+	document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+</script>

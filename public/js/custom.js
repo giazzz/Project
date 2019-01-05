@@ -196,7 +196,21 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
       expireDate.setDate(expireDate.getDate() + 1);
       $cookies.put('loaisp', $scope.loaisp,  {'expires': expireDate});      
     };
+    //Chon phuong thuc thanh toan
+    $scope.pay = "";
+    if(!angular.isUndefined($cookies.get('pay'))){
+      $scope.pay = $cookies.get('pay');
+    }
 
+
+    $scope.payment = function(){
+      expireDate = new Date();
+      expireDate.setDate(expireDate.getDate() + 1);
+      $cookies.put('pay', $scope.pay,  {'expires': expireDate}); 
+    }
+    // $scope.xemgiatri = function(){
+    //   console.log(pay);
+    // }
 
 
 
