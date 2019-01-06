@@ -145,7 +145,8 @@ li{
 	outline: none;
 	width: 190px;
 }
-.sort{
+/*bo het cho css nay*/
+/*.sort{
 	float: right;
 	width: 190px;
 	color: #73b06c;
@@ -168,6 +169,15 @@ li{
 }
 .sm1{
 	padding: 5px 0;
+	color: #73b043 !important;
+}*/
+/*bo sung form-control*/
+.form-control{
+	height: 40px;
+	border: 1px solid #f4f6f8;
+	color: #73b043 !important;
+	width: 190px;
+	font-size: 16px;
 }
 .griditem{
 	border:  1px solid #f4f6f8;
