@@ -51,6 +51,9 @@
 	.email-form-submit{
 		width: 100%;
 	}
+	.api-map-title{
+		font-size: 28px;
+	}
 }
 @media (max-width: 991px) and (min-width: 768px){
 	.custom-service{
@@ -76,6 +79,9 @@
 	}
 	.email-form-submit{
 		width: 100%;
+	}
+	.api-map-title{
+		font-size: 28px;
 	}
 }
 @media (max-width: 1199px) and (min-width: 992px){
@@ -109,6 +115,9 @@
 		margin-left: 2.5%;
 		margin-right: 2.5%;
 	}
+	.api-map-title{
+		font-size: 36px;
+	}
 }
 @media screen and (min-width: 1200px){
 	.custom-service{
@@ -140,6 +149,9 @@
 		width: 95%;
 		margin-left: 2.5%;
 		margin-right: 2.5%;
+	}
+	.api-map-title{
+		font-size: 45px;
 	}
 }
 @media screen and (min-width: 1500px){
@@ -327,9 +339,20 @@
 	line-height: 1.625;
 }
 .api-map{
-	height: 320px;
-	border: 1px solid #efefef;
 	text-align: center;
+	padding-bottom: 40px;
+}
+.api-map-iframe{
+	padding: 0px !important;
+}
+.api-map-title{
+	width: 100%;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	overflow: hidden;
+	display: inline-block;
 }
 
 

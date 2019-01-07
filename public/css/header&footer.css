@@ -634,7 +634,7 @@ a#submit { z-index: 1; }
 	border-radius: 10px;
 	text-align: center;
 	line-height: 52.6px;
-	border: 0.5px solid #73b043;
+	border: 1px solid #73b043;
 	-webkit-transition: all 0.7s ease;
 	-moz-transition: all 0.7s ease;
 	transition: all 0.7s ease;
@@ -654,6 +654,7 @@ a#submit { z-index: 1; }
 .mini-cart-navigation:hover a{
 	color: #73b043;
 }
+
 /*#ffcd48;  #ffd559;*/
 @-webkit-keyframes bgcc {
   from {background-color: #ffcd48}
@@ -811,8 +812,9 @@ a#submit { z-index: 1; }
 	padding: 0;
 	border: none;
 }
-
-
+.product a:visited{
+	color: inherit;
+}
 
 
 

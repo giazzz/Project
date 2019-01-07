@@ -71,7 +71,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="cartcontent cartfootermobile">
+					<li class="cartcontent cartfootermobile" ng-show="cart.length">
 						<div class="mini-cart-left-column pull-left">
 							<p>Subtotal:</p>
 							<div class="mini-cart-navigation"><a href="cart.html">View Cart</a></div>
@@ -92,7 +92,7 @@
 						<a href="Home.html"><p>Home</p></a>
 					</li>
 					<li class="dropmenu-mobile-title" id="dropmenu-mobile-title-1">
-						<a href="About.html"><p>About</p></a>
+						<a href="#"><p>About</p></a>
 						<ul id="dropmenu-mobile-small-1">
 							<li><a href="FAQ.html">FAQ</a></li>
 						</ul>
@@ -171,7 +171,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="cartcontent-laptop-desktop cartfooter-laptop-desktop">
+					<li class="cartcontent-laptop-desktop cartfooter-laptop-desktop" ng-show="cart.length">
 						<div class="mini-cart-left-column pull-left">
 							<p>Subtotal:</p>
 							<div class="mini-cart-navigation"><a href="cart.html">View Cart</a></div>
@@ -222,7 +222,7 @@
 							<li><a href="List.html">Shop List</a></li>
 							<li><a href="List.html">Shop Catergories</a></li>
 							<li><a href="Cart.html">Cart</a></li>
-							<li><a href="Checkout.html">Check Out</a></li>
+							<li><a href="#">Check Out</a></li>
 						</ul>                
 					</li>
 				</ul>
@@ -315,7 +315,7 @@
 							</div>
 							
 							<!-- Pagination -->
-							<dir-pagination-controls class="col-xs-7 col-sm-5 text-right" style="padding-left: 0px; padding-right: 0px;"></dir-pagination-controls>
+							<dir-pagination-controls class="col-xs-8 col-sm-5 text-right" style="padding-left: 0px; padding-right: 0px;"></dir-pagination-controls>
 						</div>
 					</div>
 					<div class="col-xs-12" id="grid">

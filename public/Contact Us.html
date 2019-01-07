@@ -11,10 +11,17 @@
 	<link rel="stylesheet" href="css/contactus.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 	<script src="js/jquery.js"></script>
+	<!-- Them -->
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/angular-animate.js"></script>
+	<script type="text/javascript" src="js/dirPagination.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
 	<script src="js/header&footer.js"></script>
 	<link rel="shortcut icon" type="image/png" href="img/logo/favicon.png"/>
 </head>
-<body>
+<body ng-app="myApp" ng-controller="dataController">
 	<!-- header -->
 	<div class="header section">
 		<section class="header-mobile-tablet hidden-md hidden-lg container-fluid">
@@ -310,8 +317,10 @@
 			</div>
 		</section>
 		<section class="container-fluid api-map">
-			<br><br><br><br><br><br><br>
-			FOR API GOOGLE MAP
+			<div class="api-map-title col-lg-12 col-md-12 col-sm-12 col-xs-12">Find Us Here</div>
+			<div class="api-map-iframe col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.112673716374!2d105.78070151446651!3d21.028177185998704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b3aa600d69%3A0x11275455cd98079!2zVMO0biBUaOG6pXQgVGh1eeG6v3QsIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1546433278391" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
 		</section>
 	</div>
 	

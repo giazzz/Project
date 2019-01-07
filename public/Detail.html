@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/detail.css"/>
-	<script src="vendor/bootstrap/js/bootstrap.js"></script>
 	<script src="js/jquery.js"></script>
 
 	<!-- Them -->
@@ -21,6 +20,7 @@
 	<script type="text/javascript" src="js/dirPagination.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.min.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.js"></script>
 
 
 	<script src="js/header&footer.js"></script>
@@ -68,7 +68,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="cartcontent cartfootermobile">
+					<li class="cartcontent cartfootermobile" ng-show="cart.length">
 						<div class="mini-cart-left-column pull-left">
 							<p>Subtotal:</p>
 							<div class="mini-cart-navigation"><a href="cart.html">View Cart</a></div>
@@ -168,7 +168,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="cartcontent-laptop-desktop cartfooter-laptop-desktop">
+					<li class="cartcontent-laptop-desktop cartfooter-laptop-desktop" ng-show="cart.length">
 						<div class="mini-cart-left-column pull-left">
 							<p>Subtotal:</p>
 							<div class="mini-cart-navigation"><a href="cart.html">View Cart</a></div>

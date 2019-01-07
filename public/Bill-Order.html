@@ -65,7 +65,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="cartcontent cartfootermobile">
+					<li class="cartcontent cartfootermobile" ng-show="cart.length">
 						<div class="mini-cart-left-column pull-left">
 							<p>Subtotal:</p>
 							<div class="mini-cart-navigation"><a href="cart.html">View Cart</a></div>
@@ -165,7 +165,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="cartcontent-laptop-desktop cartfooter-laptop-desktop">
+					<li class="cartcontent-laptop-desktop cartfooter-laptop-desktop" ng-show="cart.length">
 						<div class="mini-cart-left-column pull-left">
 							<p>Subtotal:</p>
 							<div class="mini-cart-navigation"><a href="cart.html">View Cart</a></div>
@@ -238,7 +238,7 @@
 		<div class="container">
 			<a href="list.html">
 				<div class="tnp-button-area text-center">
-					<input class="tnp-button" type="submit" value="Go to shop" ng-click="delete_all_cookies()">
+					<input class="tnp-button" type="submit" value="Back to shop" ng-click="delete_all_cookies()">
 				</div>
 			</a>
 		</div>
