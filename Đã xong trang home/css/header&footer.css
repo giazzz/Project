@@ -61,8 +61,8 @@ body::-webkit-scrollbar {
 }
 .body{
 	background-color: #fcfcfc;
-	padding-bottom: 90px;
 	padding-top: 60px;
+	padding-bottom: 60px;
 }
 .footer{
 	background-color: white;
@@ -121,7 +121,7 @@ body::-webkit-scrollbar {
 }
 .dropmenu-mobile{
 	top: 80px;
-	border-radius: 4px;
+	border-radius: 0px 0px 20px;
 	left: 0;
 	width: 100%;
 	z-index: 4;
@@ -129,7 +129,7 @@ body::-webkit-scrollbar {
 	display: none;	
 	list-style: none;
 	margin: 0;
-	padding: 10px;
+	padding: 0px;
 	background: white;
 }
 .dropmenu-mobile a{

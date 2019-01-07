@@ -216,7 +216,7 @@
 	color: transparent !important;
 	width: 25% !important;
 }
-.answer .carousel-control:hover, .carousel-control:focus{
+.answer .carousel-control:hover, .answer .carousel-control:focus{
 	color: transparent !important;
 }
 .answer .carousel{
