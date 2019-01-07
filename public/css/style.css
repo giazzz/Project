@@ -152,7 +152,7 @@ li{
 	outline: none;
 	width: 190px;
 }
-.sort{
+/*.sort{
 	float: right;
 	width: 190px;
 	color: #73b06c;
@@ -175,6 +175,14 @@ li{
 }
 .sm1{
 	padding: 5px 0;
+}*/
+/*bo sung form-control*/
+.form-control{
+	height: 40px;
+	border: 1px solid #f4f6f8;
+	color: #73b043 !important;
+	/*width: 190px;*/
+	font-size: 16px;
 }
 .griditem{
 	border:  1px solid #f4f6f8;
@@ -247,7 +255,7 @@ li{
   margin-top: 0px;
 }
 .pagination > ul {
-
+	float: right;
 
 }
 .pagination > li {
@@ -340,4 +348,39 @@ li{
 
 dir-pagination-controls {
 	padding: 0px;
+}
+
+
+/*SUA*/
+/*.bottom-navigation{
+	width: 100%;
+	margin-bottom: 30px;
+}
+.bottom-navigation p{
+	font-size: 22px; 
+	font-weight: 500;
+}
+.bottom-navigation a{
+	color: #8e8e8e;
+	line-height:  1.857;
+}
+.bottom-navigation a:hover, .bottom-navigation a:focus{
+	color: #73b043;
+}
+*/
+.category > label{
+	color: #80838a;
+	font-weight: 400;
+}
+.category > label:hover{
+	color: #23527c;
+}
+.viewcart > a{
+	color: #73b043;
+}
+.mini-cart-item > div > a{
+	color: #282828;
+}
+.fa-times-circle{
+	cursor: pointer;
 }

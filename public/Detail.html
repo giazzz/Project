@@ -24,12 +24,16 @@
 
 
 	<script src="js/header&footer.js"></script>
+	<link rel="shortcut icon" type="image/png" href="img/logo/favicon.png"/>
 </head>
 <body ng-app="myApp" ng-controller="dataController" ng-init="type.name=loaisp">
+	<!-- header -->
 	<div class="header section">
 		<section class="header-mobile-tablet hidden-md hidden-lg container-fluid">
 			<div class="logo headbar">
-				<img src="img/logo/logo-dark.png"  style="max-height: 45px;" alt="Star Organic">
+				<a href="Home.html">
+					<img src="img/logo/logo-dark.png"  style="max-height: 45px;" alt="Star Organic">
+				</a>
 			</div>
 			<div class="cart headbar">
 				<div class="togglecartmobile">
@@ -44,15 +48,19 @@
 					</li>
 					<li class="cartcontent cartmidmobile">
 						<ul style="list-style: none; margin: 0; padding: 0;">
-							<!-- san pham gio hang-->
+							<!-- san pham -->
 							<li class="mini-cart-item" ng-repeat="c in cart">
 								<div class="mini-cart-item-picture mini-cart-item-bar">
-									<img src="{{c.image_link}}" style="max-width: 54px; max-height: 50px;" alt="product">
+									<a href="/chi-tiet/{{c.id}}" ng-click="spChitiet(c)">
+										<img src="{{c.image_link}}" style="max-width: 54px; max-height: 50px;" alt="product">
+									</a>
 								</div>
 								<div class="mini-cart-item-nameqtyandprice mini-cart-item-bar">
-									{{c.name}}
+									<a href="/chi-tiet/{{c.id}}" ng-click="spChitiet(c)">
+										{{c.name}}
+									</a>
 									<br>
-									<span>{{c.count}}</span >&nbsp;x&nbsp;$<span>{{c.price}}</span>
+									<span>{{c.count}}</span> x $<span>{{c.price}}</span>
 								</div>
 								<div class="mini-cart-item-remove-button mini-cart-item-bar">
 									<i class="far fa-times-circle" ng-click="removeItemCart(c)"></i>
@@ -66,8 +74,8 @@
 							<div class="mini-cart-navigation"><a href="cart.html">View Cart</a></div>
 						</div>
 						<div class="mini-cart-right-column pull-right" style="text-align: right">
-							<p>$<span>{{total}}</span></p>
-							<div class="mini-cart-navigation"><a href="#">Checkout</a></div>
+							<p><span>{{total | currency}}</span></p>
+							<div class="mini-cart-navigation"><a href="Checkout.html">Checkout</a></div>
 						</div>
 					</li>
 				</ul>
@@ -78,7 +86,7 @@
 				</div>
 				<ul class="dropmenu-mobile">
 					<li class="dropmenu-mobile-title current-page-mobile">
-						<a href="#"><p>Home</p></a>
+						<a href="Home.html"><p>Home</p></a>
 					</li>
 					<li class="dropmenu-mobile-title" id="dropmenu-mobile-title-1">
 						<a href="About.html"><p>About</p></a>
@@ -92,13 +100,13 @@
 							<li><a href="List.html">Shop List</a></li>
 							<li><a href="List.html">Shop Catergories</a></li>
 							<li><a href="Cart.html">Cart</a></li>
-							<li><a href="#">Check Out</a></li>
+							<li><a href="Checkout.html">Check Out</a></li>
 						</ul>
 					</li>
 					<li class="dropmenu-mobile-title" id="dropmenu-mobile-title-3">
-						<a href="Contact.html"><p>Contact</p></a>
+						<a href="#"><p>Contact</p></a>
 						<ul id="dropmenu-mobile-small-3">
-							<li><a>Contact Us</a></li>
+							<li><a href="Contact Us.html">Contact Us</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -122,7 +130,9 @@
 		
 		<section class="header-laptop-desktop hidden-xs hidden-sm container">
 			<div class="logo-laptop-desktop headbar">
-				<img src="img/logo/logo-dark.png" style="width: auto; height: auto; max-height: 55px;" alt="Star Organic">
+				<a href="Home.html">
+					<img src="img/logo/logo-dark.png" style="width: auto; height: auto; max-height: 55px;" alt="Star Organic">
+				</a>
 			</div>
 			<div class="headbar-right cart-laptop-desktop">
 				<div class="cart-button">
@@ -138,13 +148,17 @@
 					</li>
 					<li class="cartcontent-laptop-desktop cartmid-laptop-desktop">
 						<ul style="list-style: none; margin: 0; padding: 0;">
-							<!-- san pham gio hang-->
+							<!-- san pham -->
 							<li class="mini-cart-item" ng-repeat="c in cart">
 								<div class="mini-cart-item-picture mini-cart-item-bar">
-									<img src="{{c.image_link}}" style="max-width: 54px; max-height: 50px;" alt="product">
+									<a href="/chi-tiet/{{c.id}}" ng-click="spChitiet(c)">
+										<img src="{{c.image_link}}" style="max-width: 54px; max-height: 50px;" alt="product">
+									</a>
 								</div>
 								<div class="mini-cart-item-nameqtyandprice mini-cart-item-bar">
-									{{c.name}}
+									<a href="/chi-tiet/{{c.id}}" ng-click="spChitiet(c)">
+										{{c.name}}
+									</a>
 									<br>
 									<span>{{c.count}}</span> x $<span>{{c.price}}</span>
 								</div>
@@ -160,8 +174,8 @@
 							<div class="mini-cart-navigation"><a href="cart.html">View Cart</a></div>
 						</div>
 						<div class="mini-cart-right-column pull-right" style="text-align: right">
-							<p>$<span>{{total}}</span></p>
-							<div class="mini-cart-navigation"><a href="#">Checkout</a></div>
+							<p><span>{{total | currency}}</span></p>
+							<div class="mini-cart-navigation"><a href="Checkout.html">Checkout</a></div>
 						</div>
 					</li>
 				</ul>
@@ -177,17 +191,6 @@
 					<li class="init option">Browse Catergories</li>
 					<ul class="inside-list">
 						<li class="option" ng-repeat="type in types" data-value="value {{type.id}}" ng-click="filters.type = type.name">{{type.name}}</li>
-						<!-- <li class="option" data-value="value 2">Soya & Dairy Free</li>
-						<li class="option" data-value="value 3">Baking & Cooking</li>
-						<li class="option" data-value="value 4">Butter</li>
-						<li class="option" data-value="value 5">Cereals</li>
-						<li class="option" data-value="value 6">Chocolate Spread</li>
-						<li class="option" data-value="value 7">Dried Fruit</li>
-						<li class="option" data-value="value 8">Honey</li>
-						<li class="option" data-value="value 9">Jams</li>
-						<li class="option" data-value="value 10">Jams & Spread</li>
-						<li class="option" data-value="value 11">Oils & Sauces</li>
-						<li class="option" data-value="value 12">Rice</li> -->
 					</ul>
 				</ul>
 			</div>
@@ -199,11 +202,11 @@
 		<section class="lower-header-laptop-desktop hidden-xs hidden-sm container">
 			<nav class="navigation">
 				<div class="Home-link navigation-row current-page-laptop-desktop">
-					<a href="#">Home</a>
+					<a href="Home.html">Home</a>
 				</div>			
 				<ul class="nav navbar-nav navigation-row">
 					<li class="dropdown">
-					  <a href="About.html" class="dropdown-toggle" data-toggle="dropdown">About</a>				
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">About</a>				
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="FAQ.html">FAQ</a></li>
 						</ul>                
@@ -216,7 +219,7 @@
 							<li><a href="List.html">Shop List</a></li>
 							<li><a href="List.html">Shop Catergories</a></li>
 							<li><a href="Cart.html">Cart</a></li>
-							<li><a href="#">Check Out</a></li>
+							<li><a href="Checkout.html">Check Out</a></li>
 						</ul>                
 					</li>
 				</ul>
@@ -224,13 +227,14 @@
 					<li class="dropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact</a>				
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="Contact.html">Contact</a></li>
+							<li><a href="Contact Us.html">Contact</a></li>
 						</ul>                
 					</li>
 				</ul>
 			</nav>
 		</section>
 	</div>
+	<!-- end header -->
 	
 	
 	<div class="body section">
@@ -299,8 +303,10 @@
 								</button>
 
 								<button class="viewcart" id="v1">
-									<i class="fas fa-check" style="font-size: 20px"></i>
-									<span id="atc">View Cart</span>
+									<a href="Cart.html">
+										<i class="fas fa-check" style="font-size: 20px"></i>
+										<span id="atc">View Cart</span>
+									</a>
 								</button>
 			    			</div>
 			    			<script>
@@ -405,8 +411,10 @@
 												<span id="atc">Add To Cart</span>
 											</button>
 											<button class="viewcart" id="v21">
-												<i class="fas fa-check" style="font-size: 20px"></i>
-												<span id="atc">View Cart</span>
+												<a href="Cart.html">
+													<i class="fas fa-check" style="font-size: 20px"></i>
+													<span id="atc">View Cart</span>
+												</a>
 											</button>
 										</div>
 										<script>
@@ -435,20 +443,32 @@
 	
 	
 	
+	<!-- FOOTER -->
 	<div class="footer section">
 		<section  class="footer-mobile-tablet hidden-md hidden-lg container-fluid">
 			<div class ="subscribe-email col-xs-12 col-sm-12">
 				<div class="tnp-email-area">
 					<input class="tnp-email" type="email"  value="" required="" placeholder="Enter your Email Address to Subscribe to our Newsletter and Save 10% off Your Next Order!">
 				</div>
-				<div class="tnp-button-area">
-					<input class="tnp-button" type="submit" value="Subscribe for Free">
-				</div>
+				<a href="Contact Us.html">
+					<div class="tnp-button-area">
+						<input class="tnp-button" type="submit" value="Subscribe for Free">
+					</div>
+				</a>
 			</div>
 			<div class="logo col-xs-12 col-sm-12">
-				<img src="img/logo/footer-logo.png" style="max-height: 114px; max-width: 100%;" alt="Star Organic">
+				<a href="Home.html">
+					<img src="img/logo/footer-logo.png" style="max-height: 114px; max-width: 100%;" alt="Star Organic">
+				</a>
 			</div>
 			<div class="bottom-navigation col-xs-12 col-sm-4">
+				<p>Navigation</p><br>
+				<a href="Home.html">Home</a><br>
+				<a href="FAQ.html">About Us</a><br>
+				<a href="List.html">Product</a><br>
+				<a href="Contact Us.html">Contact Us</a><br>
+			</div>
+			<!-- <div class="bottom-navigation col-xs-12 col-sm-4">
 				<p>Navigation</p><br>
 				<a href="#">Home</a><br>
 				<a href="#">About Us</a><br>
@@ -463,15 +483,7 @@
 				<a href="#">Product</a><br>
 				<a href="#">Terms & Rules</a><br>
 				<a href="#">Contact Us</a><br>
-			</div>
-			<div class="bottom-navigation col-xs-12 col-sm-4">
-				<p>Navigation</p><br>
-				<a href="#">Home</a><br>
-				<a href="#">About Us</a><br>
-				<a href="#">Product</a><br>
-				<a href="#">Terms & Rules</a><br>
-				<a href="#">Contact Us</a><br>
-			</div>
+			</div> -->
 			
 			<div class="slogan col-xs-12 col-sm-12">
 				<div class="slogan-title"><h3>Our Promise To You</h3></div>
@@ -515,31 +527,34 @@
 				<div class="tnp-email-area col-md-9 col-lg-9">
 					<input class="tnp-email" type="email"  value="" required="" placeholder="Enter your Email Address to Subscribe to our Newsletter and Save 10% off Your Next Order!">
 				</div>
-				<div class="tnp-button-area-laptop-desktop col-md-3 col-lg-3">
-					<input class="tnp-button" type="submit" value="Subscribe for Free">
-				</div>
+				<a href="Contact Us.html">
+					<div class="tnp-button-area-laptop-desktop col-md-3 col-lg-3">
+						<input class="tnp-button" type="submit" value="Subscribe for Free">
+					</div>
+				</a>
 			</div>
 			<div class ="row lower-footer">
 				<div class="logo-laptop-desktop col-md-3 col-lg-3">
-					<img src="img/logo/footer-logo.png" style="max-height: 114px; max-width: 100%;" alt="Star Organic">
+					<a href="Home.html">
+						<img src="img/logo/footer-logo.png" style="max-height: 114px; max-width: 100%;" alt="Star Organic">
+					</a>
 				</div>
-				<div class="bottom-navigation-row col-md-5 col-lg-5">
+				<div class="bottom-navigation-row col-md-5 col-lg-5" style="padding-left: 14%;">
 					<div class="bottom-navigation col-md-6 col-lg-6">
+						<p>Navigation</p><br>
+						<a href="Home.html">Home</a><br>
+						<a href="FAQ.html">About Us</a><br>
+						<a href="List.html">Product</a><br>
+						<a href="Contact Us.html">Contact Us</a><br>
+					</div>
+					<!-- <div class="bottom-navigation col-md-6 col-lg-6">
 						<p>Navigation</p><br>
 						<a href="#">Home</a><br>
 						<a href="#">About Us</a><br>
 						<a href="#">Product</a><br>
 						<a href="#">Terms & Rules</a><br>
 						<a href="#">Contact Us</a><br>
-					</div>
-					<div class="bottom-navigation col-md-6 col-lg-6">
-						<p>Navigation</p><br>
-						<a href="#">Home</a><br>
-						<a href="#">About Us</a><br>
-						<a href="#">Product</a><br>
-						<a href="#">Terms & Rules</a><br>
-						<a href="#">Contact Us</a><br>
-					</div>
+					</div> -->
 				</div>
 			
 				<div class=" col-md-4 col-lg-4">
@@ -575,6 +590,7 @@
 			</div>
 		</section>
 	</div>
+	<!-- End footer -->
 
 
 	

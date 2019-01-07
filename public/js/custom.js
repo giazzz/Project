@@ -63,6 +63,21 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
       $rootScope.ones = result.data.data;
       // console.log(result);
     });
+    $http.get('/hot_product').
+    then(function(result, status, headers, config) {
+      $rootScope.hots = result.data.data;
+      // console.log(result);
+    });
+    $http.get('/random_product').
+    then(function(result, status, headers, config) {
+      $rootScope.randoms = result.data.data;
+      // console.log(result);
+    });
+    $http.get('/random_4_product').
+    then(function(result, status, headers, config) {
+      $rootScope.rd = result.data.data;
+      // console.log(result);
+    });
 
     
     // ADD TO CART
@@ -202,7 +217,6 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
       $scope.pay = $cookies.get('pay');
     }
 
-
     $scope.payment = function(){
       expireDate = new Date();
       expireDate.setDate(expireDate.getDate() + 1);
@@ -213,7 +227,12 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
     // }
 
 
-
+    $scope.delete_all_cookies = function(){
+      var cookies = $cookies.getAll();
+      angular.forEach(cookies, function (v, k) {
+        $cookies.remove(k);
+      });
+    };
 
 
 

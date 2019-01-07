@@ -86,20 +86,6 @@ MongoClient.connect(url, function (err, db) {
     var type = database.collection("type");
     var user = database.collection("user");
 
-    //Pagination
- //    var mySchema = new mongoose.Schema({ 
- //    id: 'string', 
- //    name: 'string'
-	// });
- 
-	// mySchema.plugin(mongoosePaginate);
-	// var myModel = mongoose.model('type',  mySchema); 
-	// 			// myModel.paginate().then({})
-	// 			const options = {
-	// 		    page: 1,
-	// 		    limit: 9
-	// 				};
-
 	//--------------------------------------------------------------------------------------
 	//Xoa type
 	app.get("/xoaloai/:idloai",function(req,res,next){
@@ -283,23 +269,6 @@ MongoClient.connect(url, function (err, db) {
         });
     });
   	//--------------------------------------------------------------------------
-	// Count sl loai
-	// app.get('/counttype', function (req, res) {
-	// 	type.find({}).count(function (e, count) {
-	//       res.json([{count:count}]);
-	//     });
-
-	// })
-	// // Count sl sp
-	// app.get('/countproduct', function (req, res) {
-	// 	collection.find({}).count(function (e, count) {
-	//       res.json([{count:count}]);
-	//     });
-
-	// })
-	// app.get('/sanpham/:a',function(req, res, next){
-	// 	res.send('Day la trang san pham');
-	// });
 
 	//SIGN IN
 	app.post("/sign_in",upload.single("image"),function(req,res){
@@ -333,17 +302,6 @@ MongoClient.connect(url, function (err, db) {
 	    });
 	});
 
-	// app.get("/page", function(req,res){
-		// myModel.paginate({}, 2, 10, function(error, pageCount, paginatedResults) {
-		//   if (error) {
-		//     console.error(error);
-		//   } else {
-		//     console.log('Pages:', pageCount);
-		//     console.log(paginatedResults);
-		//   }
-		// })
-	    
-  	// });
 
 		// SESSION
   	app.get('/taosession',function(req, res, next){
@@ -374,10 +332,6 @@ MongoClient.connect(url, function (err, db) {
 	});
 	//TAO Link API lay sp cho trang shop dua vao array id trong session ($in: array)
 	app.get("/shop_product", function(req,res){
-		// var i = req.session.shop.length;
-		// console.log(i);
-		// console.log(req.session.shop[0]);
-		// console.log(req.session.shop[i-1]);
 		collection.find({ id: { $in: req.session.shop } }).toArray(function (err,result) {
 			if (err) {
 				res.send({
@@ -406,7 +360,6 @@ MongoClient.connect(url, function (err, db) {
   	app.get("/xoa-shop/:idsanpham",function(req,res,next){
   		var idsp = req.params.idsanpham;
   		req.session.shop.pop(idsp);
-			// res.send("Session la" + req.session.shop);
 		console.log("da xoa khoi session id:  " + req.session.shop);
 		res.redirect('back');
 	});
@@ -415,16 +368,10 @@ MongoClient.connect(url, function (err, db) {
   		var idsp = req.params.idsanpham;
   		req.session.chi_tiet = [];
   		req.session.chi_tiet.push(idsp);
-		// res.send("Session la" + req.session.shop);
-		// console.log("da xoa khoi session id:  " + req.session.shop);
 		res.redirect('/Detail.html');
 	});
 	//TAO Link API lay sp cho trang chi tiet dua vao trong session ($in: array)
 	app.get("/chi_tiet_product", function(req,res){
-		// var i = req.session.shop.length;
-		// console.log(i);
-		// console.log(req.session.shop[0]);
-		// console.log(req.session.shop[i-1]);
 		collection.find({ id: { $in: req.session.chi_tiet } }).toArray(function (err,result) {
 			if (err) {
 				res.send({
@@ -450,26 +397,95 @@ MongoClient.connect(url, function (err, db) {
 		});
 	});	
 
-	//sua quantity
-	// app.get("/update_all_quantity",function(req,res){
-	//         collection.updateMany({}, {$set: {"quantity":"1"}}, function (err,res) {
-	// 	        if (err) throw err;
-	// 	        console.log('updated quantity');
-	// 	    });
-	// 	    res.redirect('/');
-	//     });
+	//api trang home
+	app.get('/', function(req, res){       
+	    db.property.find({}).sort({timestamp: -1}).limit(1).toArray(function (err, docs) {
+	     res.render("index.ejs",{property: docs});
+	    })
+	});
 
-	// app.post("/update_quantity",upload.single("image"),function(req,res){
-	// 		var idcansua = req.body.id;
-	//         var quantity = req.body.quantity;
-	//         console.log(idcansua);
-	//         console.log(quantity);
-	     //    collection.updateOne({id:idcansua}, {$set: {quantity:quantity}}, function (err,res) {
-		    //     if (err) throw err;
-		    //     console.log('update success: ' + res.result.nModified + ' record');
-		    // });
-		    // res.redirect('/Project-caominhquan/shop.html');
-	    // });
+	//TAO Link API lay 4 sp theo rate
+  	app.get("/hot_product", function(req,res){
+		collection.find({}).sort({rating: -1}).limit(4).toArray(function (err, result) {
+	      if (err) {
+	        res.send({
+	        	status: 0,
+	        	message:'fail'
+	        });
+	      } else {
+	        if (result.length){
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: result
+	        	});
+	        	console.log(result);
+	        }else{
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: []
+	        	});
+	        }
+	      }
+
+	    });
+  	});
+  	// db.mycoll.aggregate([{ $sample: { size: 1 } }])
+  	//TAO Link API lay random 3 sp
+  	app.get("/random_product", function(req,res){
+		collection.aggregate([{ $sample: { size: 3 } }]).toArray(function (err, result) {
+	      if (err) {
+	        res.send({
+	        	status: 0,
+	        	message:'fail'
+	        });
+	      } else {
+	        if (result.length){
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: result
+	        	});
+	        	console.log(result);
+	        }else{
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: []
+	        	});
+	        }
+	      }
+
+	    });
+  	});
+  	//TAO Link API lay random 4 sp
+  	app.get("/random_4_product", function(req,res){
+		collection.aggregate([{ $sample: { size: 4 } }]).toArray(function (err, result) {
+	      if (err) {
+	        res.send({
+	        	status: 0,
+	        	message:'fail'
+	        });
+	      } else {
+	        if (result.length){
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: result
+	        	});
+	        	console.log(result);
+	        }else{
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: []
+	        	});
+	        }
+	      }
+
+	    });
+  	});
 
 
 

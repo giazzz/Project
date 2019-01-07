@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List</title>
+    <title>Checkout</title>
 	<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
 	<link rel="stylesheet" href="css/header&footer.css">
-	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
-	
-
-	<script src="js/jquery.js"></script>
-	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
-
-	<!-- Them -->
+	<link rel="stylesheet" href="css/checkout.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <!-- Them -->
 	<script type="text/javascript" src="js/angular.js"></script>
 	<script type="text/javascript" src="js/angular-route.min.js"></script>
 	<script type="text/javascript" src="js/angular-animate.js"></script>
 	<script type="text/javascript" src="js/dirPagination.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.min.js"></script>
+	
+	<!-- <script src="js/jquery.js"></script> -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="vendor/angular.min.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/header&footer.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
-
-
-	<script src="js/header&footer.js"></script>
 	<link rel="shortcut icon" type="image/png" href="img/logo/favicon.png"/>
-	
-	
 </head>
 <body ng-app="myApp" ng-controller="dataController">
 	<!-- header -->
@@ -239,138 +236,152 @@
 	</div>
 	<!-- end header -->
 	
+	
 	<div class="body section">
-		<div class="sectionfader" onclick="closesort()">
-			<span></span>
-		</div>
-		<div class="section1">
+		<div class="section3">
 			<div class="container">
-				<div class="col-md-3 hidden-xs hidden-sm " id="a">
-					<div class="leftc" id="leftc">
-						<p class="leftc-title">Raw Foods Shelf</p>
-						<li class="category">							
-							<input type="checkbox" ng-true-value="'All products'"  ng-false-value="' '" ng-model="model.val" id="all_pro" class="hidden" ></input>
-							<label for="all_pro" ng-click="filters.type = ''" style="cursor: pointer;">All products
-							</label>
-						</li>
-
-						<ul class="leftc-content">
-							<!-- CATEGORIES -->
-							<li class="category" ng-repeat="type in types">
-								
-								<input type="checkbox"  ng-true-value="'{{type.name}}'"  ng-false-value="' '" ng-model="model.val" id="{{type.id}}" class="hidden" ></input>
-								<label for="{{type.id}}" ng-click="filters.type = type.name" style="cursor: pointer;">{{type.name}}
-								
-								</label>
-							</li>
-							
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-9 col-xs-12" id="b">
-					<div class="col-xs-12" id="b1">
-						<div class="col-md-12 col-xs-8" id="b1a">
-					        <ul class="breadcrumb" id="breadcrumb">
-					            <li class="breadcrumb-item"><a class="lista" href="Home.html">Home</a></li>
-					            <li class="breadcrumb-item"><a class="lista" href="#">Product Categories</a></li>
-					            <li class="breadcrumb-item active" aria-current="page">{{model.val}}</li>
-					        </ul>
-						</div>
-						<div class="col-xs-4" id="b1b">
-							<div class="text-right">
-								<span><i id="menu" class="fas fa-ellipsis-v"></i></span>
-							</div>
-							<div class="text-left">
-								<div class="rightc" id="rightc">
-									<ul class="leftc-content">
-										<li class="category" ng-repeat="type in types">
-											<a class="lista" href="" ng-click="filters.type = type.name">{{type.name}}</a>
-										</li>
-										
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12" id="b2">
-						<div class="col-xs-12 col-sm-3 " id="b2a" style="font-size: 18px;">
-							<p>{{model.val}}</p>
-						</div>
-						<div class="col-sm-9 col-xs-12" id="b2b">
-							<div class="col-xs-2 text-center hidden-xs" id="b2ba">	
-								<span id="clickgrid"><i class="fas fa-th" style="cursor: pointer;"></i></span>
-								<span>&ensp;</span>
-								<span id="clicklist"><i class="fas fa-list-ul" style="cursor: pointer;"></i></span>
-							</div>
-							<div class="col-xs-4" id="b2bb">
-								<select class="form-control" id="sel1" ng-model="orderByAttr" >
-									<option value="" selected disabled hidden>Sort by:</option>
-							        <option class="sm1" ng-value="'name'">Sort by name A->Z</option>
-							        <option class="sm1" ng-value="'-name'">Sort by name Z->A</option>
-							        <option class="sm1" ng-value="'-rating'">Sort by popularity</option>
-							        <option class="sm1" ng-value="'price'">Sort by price: low to high</option>
-							        <option class="sm1" ng-value="'-price'">Sort by price: high to low</option>
-							    </select>
-
-							</div>
-							
-							<!-- Pagination -->
-							<dir-pagination-controls class="col-xs-7 col-sm-5 text-right" style="padding-left: 0px; padding-right: 0px;"></dir-pagination-controls>
-						</div>
-					</div>
-					<div class="col-xs-12" id="grid">
-
-					<!-- SAN PHAM -->
-
-						<div class="keogian" >
-							<div class="col-sm-4 col-xs-6 griditem" dir-paginate="product in products | filter:filters | filter : idsp: true | filter: key | itemsPerPage: pageSize | orderBy:sortType:sortReverse | orderBy: orderByAttr" current-page="currentPage">
-								<div class="item">	
-									<div class="text-center">
-										<a class="image" href="/chi-tiet/{{product.id}}" ng-click="spChitiet(product)">
-											<img id="image" src="{{product.image_link}}" style="width: 140px; height: 175px;">
-											
-										</a>
-										<div class="item-content1">
-											<figcaption class="fig" ng-click="spChitiet(product)"><a href="/chi-tiet/{{product.id}}" >{{product.name}}</a></figcaption>
-											<div class="piece" id="piece">
-												<p>{{product.desc}}</p>
-											</div>
-											<div class="des" id="des">Day la mot san pham rat phu hop voi nguoi an kieng do hoan toan khong chua chat beo. San pham duoc Star Organic doc quyen phan phoi tai Viet Nam</div>
+				<div class="col-xs-12 k">
+					<div class="k1"></div>
+					<div class="panel-group">
+						<div class="panel panel-default">
+						    <div class="panel-heading">
+						      	<h4 class="panel-title">
+						      		<span class="user"><i class="fas fa-user"></i></span>
+						      		<span class="k11">Returning customer?</span>
+						        	<a data-toggle="collapse" href="#collapse1" id="k12">Click here to login</a>
+						      	</h4>
+						    </div>
+						    <div id="collapse1" class="panel-collapse collapse">
+						      	<div class="panel-body">
+						      		<form action="/action_page.php">
+										<div class="form-group">
+										    <label class="k13" for="email">Email address:</label>
+										    <input type="email" class="form-control" id="email">
 										</div>
-										<div class="item-content2 text-center">
-											<figcaption id="fig1">${{product.price}}</figcaption>
-											
-												<button class="addtocart" id="1" ng-click="addItemToCart(product)">
-													<i class="fas fa-plus-circle" style="font-size: 20px"></i>
-													<span id="atc">Add to cart</span>
-												</button>
-
-												<button class="viewcart" id="v1">
-													<a href="cart.html">
-														<i class="fas fa-check" style="font-size: 20px"></i>
-														<span id="atc" >View Cart</span>
-													</a>
-												</button>
-												
-											<script>
-												$(".addtocart").click(function(){
-													$(this).addClass("hidden");
-													$(this).next().css( "display", "block" );
-													});
-											</script>
-											
-										</div>	
-									</div>
-								</div>
-							</div>
+										<div class="form-group">
+										    <label class="k13" for="pwd">Password:</label>
+										    <input type="password" class="form-control" id="pwd">
+										</div>
+										<div class="checkbox">
+										    <label><input type="checkbox"> Remember me</label>
+										</div>
+										<button id="login1" type="submit" class="btn btn-default">Login</button>
+									</form>
+						      	</div>					     
+						    </div>
 						</div>
-						<!-- End SP -->
+					</div>
+					<div class="k1"></div>
+					<div class="panel-group">
+						<div class="panel panel-default">
+						    <div class="panel-heading">
+						      	<h4 class="panel-title">
+						      		<span class="user"><i class="fas fa-ticket-alt"></i></span>
+						      		<span class="k11">Have a coupon?</span>
+						        	<a data-toggle="collapse" href="#collapse2" id="k12">Click here to enter your code</a>
+						      	</h4>
+						    </div>
+						    <div id="collapse2" class="panel-collapse collapse">
+						      	<div class="panel-body">
+						      		<form action="/action_page.php">									
+										<div class="form-group">
+										    <label class="k13" for="pwd">If you have a coupon code, please apply it below.</label>
+										    <input type="password" class="form-control" id="pwd">
+										</div>									
+										<button id="apply1" type="submit" class="btn btn-default">Apply now</button>
+									</form>
+						      	</div>					     
+						    </div>
+						</div>
 					</div>
 				</div>
-			</div>	
+				<div class="col-xs-12 l">
+					<div class="l1"><span>Billing Details</span></div>
+			        <form method="post-get" action="#" name="form_data" enctype="multipart/form-data">
+			        <div class="row">
+			            <div class="form-group col-md-6">
+			            <label class="required-field" for="firstName">First Name</label>
+			            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+			            <p class="form-alert hiding">Please enter your first name</p>
+			            </div>
+			            <div class="form-group col-md-6">
+			            <label class="required-field" for="lastName">Last Name</label>
+			            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+			            <p class="form-alert hiding">Please enter your last name</p>
+			            </div>
+			        </div>
+			        <div class="form-group">
+			            <label class="required-field" for="address">Address</label>
+			            <input type="text" class="form-control" id="address" placeholder="Your address" required>
+			            <p class="form-alert hiding">Address is required</p>
+			        </div>
+			        <div class="form-group">
+			            <label class="required-field" for="phone">Phone</label>
+			            <input type="text" class="form-control" pattern="[0-9]+" id="phone" placeholder="Your phone number" required>
+			            <p class="form-alert hiding">Phone number is required</p>
+			        </div>
+			        <div class="form-group">
+			            <label class="required-field" for="email">Email Address</label>
+			            <input type="text" class="form-control" id="email" placeholder="Your email address" required>
+			            <p class="form-alert hiding">Email is required</p>
+			        </div>
+			        <div class="form-group">
+			            <div class="l1"><span>Additional Information</span></div>
+			            <p>Order notes (optional)</p>
+			            <input type="text" class="form-control" id="additionalInfo" placeholder="Notes about your order, e.g. special notes for delivery.">
+			        </div>
+
+			        <div class="l1"><span>Your Order</span></div>
+			        <table class="table">
+			                <thead>
+			                  <tr>
+			                    <th scope="col">Product</th>
+			                    <th scope="col">Total</th>
+			                  </tr>
+			                </thead>
+			                <tbody>
+			                  <tr ng-repeat="product in cart">
+			                    <td><a href="#">{{product.name}}</a><span>&nbsp;x&nbsp;{{product.count}}</span></td>
+			                    <td>{{product.price*product.count | currency}}</td>
+			                  </tr>
+			                  <tr>
+			                    <th scope="row">Subtotal</th>
+			                    <td>{{total| currency}}</td>
+			                  </tr>
+			                  <tr>
+			                    <th scope="row">Total</th>
+			                    <td>{{total| currency}}</td>
+			                  </tr>
+			                </tbody>
+			        </table>
+
+			        <div class="l1"><span>Billing Methods</span></div>
+			        <div class="form-check">
+			            <input class="form-check-input" type="radio" name="radios" id="radio1" ng-model="pay" ng-value='"Direct bank transfer"' ng-selected="payment()" checked="checked">
+			            <label class="form-check-label" for="radio1">
+			              Direct bank transfer
+			            </label>
+			        </div>
+			        <div class="form-check">
+			            <input class="form-check-input" type="radio" name="radios" id="radio2" ng-model="pay" ng-value='"Cash on delivery(COD)"' ng-selected="payment()">
+			            <label class="form-check-label" for="radio2">
+			              Cash on delivery(COD)
+			            </label>
+			        </div>
+			        <div class="text-center" style="margin-top: 40px;">
+			        	
+			        		<button id="placeorder1" type="submit" class="btn btn-success place-order" onclick="return checkForm()" style="font-size: 20px;padding-bottom: 10px;">
+			        			<a href="Bill-Order.html" style="font-size: 15px;">PLACE ORDER</a>
+			        		</button>
+			        	
+			        </div>
+			        </form>
+				</div>
+			</div>
 		</div>
-																
+
 	</div>
+	
 	
 	
 	<!-- FOOTER -->
@@ -523,8 +534,8 @@
 	<!-- End footer -->
 
 
-	<script type="text/javascript" src="js/list.js"></script>
 
+	<script type="text/javascript" src="js/checkout.js"></script>
 </body>
 
 </html>

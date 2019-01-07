@@ -326,7 +326,7 @@ body::-webkit-scrollbar {
 	color: #8e8e8e;
 	line-height:  1.857;
 }
-.bottom-navigation a:hover, .bottom-navigation a:focus, .bottom-navigation a:visited{
+.bottom-navigation a:hover, .bottom-navigation a:focus{
 	color: #73b043;
 }
 .slogan{
