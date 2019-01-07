@@ -353,16 +353,13 @@
 	padding-right: 0px !important;
 	overflow: hidden;
 	display: inline-block;
-<<<<<<< HEAD
-=======
 }
 .email-form-content:hover, .email-form-content:focus, .email-form-content:visited{
 	border-color: #7dbb4c;
 }
 .current-page-laptop-desktop{
 	background-color: #ddd !important;
->>>>>>> 5ae8fbd3aa33ae7ceff3c755ed113336a528c6b6
-}
+
 
 
 
