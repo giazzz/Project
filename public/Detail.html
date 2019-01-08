@@ -436,13 +436,13 @@
 						<input type="text" name="name" id="name" value="" placeholder="Name *">
 					</div>
 					<div class="comment-name-alert input-comment-alert">
-						*Your name have to be 10 characters long at least.
+						*You have to leave your name here
 					</div>
 					<div class="comment_form-email-area comment_form-input-area col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<input type="email" name="email" id="email" value="" placeholder="Email *">
 					</div>
 					<div class="comment-email-alert input-comment-alert">
-						*Your email is not valid.
+						*Please leave your email here
 					</div>
 					<div class="comment_form-comment-area comment_form-text-area col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<textarea rows="10" name="comment" id="comment" placeholder="Comment"></textarea>
@@ -452,10 +452,43 @@
 					</div>
 					<div class="col-xs-2 col-sm-4 col-md-5 col-lg-5"></div>
 					<div class="comment_form-submit-area col-xs-8 col-sm-4 col-md-2 col-lg-2">
-						<input type="submit" name="submit" value="Add Comment">
+						<input type="submit" name="submit" value="Add Comment" class="comment-submit">
 					</div>
 					<div class="col-xs-2 col-sm-4 col-md-5 col-lg-5"></div>
 				</form>
+				<script>
+					$(document).ready(function() {
+						$('.comment-submit').click(function() {
+		
+							var name = $('input#name').val();
+							var email = $('input#email').val();
+							var comment = $('textarea#comment').val();
+
+							if (name == '') {
+								$('.comment-name-alert').show();
+								$('input#name').keypress(function(){
+									$('.comment-name-alert').hide();
+								});
+							}
+							if (email == '') {
+								$('.comment-email-alert').show();
+								$('input#email').keypress(function(){
+									$('.comment-email-alert').hide();
+								});
+							}
+							if (comment == '') {
+								$('.comment-text-alert').show();
+								$('textarea#comment').keypress(function(){
+									$('.comment-text-alert').hide();
+								});
+							}
+							if (name == '' || email == '' || comment == '') {
+								return false;
+							}
+
+						});
+					});
+				</script>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 comment-list">
 					<h3 style="margin-bottom: 15px;">Comments (<span class="comment-count">3</span>)</h3>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 comment">
