@@ -2,30 +2,11 @@ var app = angular.module("myApp",["ngRoute","ngAnimate","angularUtils.directives
 
 app.config(['$routeProvider',function($routeProvider) {
   $routeProvider
-    // .when("/them-shop/:so", {
-    //     templateUrl : "http://localhost:3003/Project-caominhquan/list-ghep-header-footer.html"
-    // })
-    // .when("/loai", {
-    //    templateUrl : "loai.html",
-    //    // controller: "loaiController"
-    // })
-    // .when("/sp", {
-    //    templateUrl : "sp.html",
-    //    // controller: "spController"
-    // })
-    // .when("/themsp", {
-    //     templateUrl : "themsp.html"
-    // })
-    // .when("/themloai", {
-    //     templateUrl : "themloai.html"
-    // })
-    // .when("/editproduct", {
-    //     templateUrl : "editproduct.html"
-    // })
-    // .when("/edittype.html/", {
-    //     templateUrl : "edittype.html"
-    // })
-    // .otherwise({ redirectTo: '/' });
+    .when("/", {
+        templateUrl : "home.html"
+    })
+    
+    .otherwise({ redirectTo: '/' });
   }]);
 
 app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$cookies,$cookieStore){
@@ -120,8 +101,9 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
     };
 
      //Tao cookies luu so luong sp trc khi add to cart(Trang Detail)
+     $scope.slsp = 1;
      if(!angular.isUndefined($cookies.get('slsp'))){
-      $scope.slsp = $cookies.get('slsp');
+      $scope.slsp = parseFloat($cookies.get('slsp'));
     }
     
     $scope.qty_incr = function(item){
@@ -160,6 +142,7 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
       console.log(check);
       //Truong hop chua add to cart trc khi vao trang detail
       if(check == false){
+        product.count =1;
         product.count = $scope.slsp;
 
         $scope.cart.push(product);

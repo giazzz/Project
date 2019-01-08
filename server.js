@@ -397,13 +397,8 @@ MongoClient.connect(url, function (err, db) {
 		});
 	});	
 
-	//api trang home
-	app.get('/', function(req, res){       
-	    db.property.find({}).sort({timestamp: -1}).limit(1).toArray(function (err, docs) {
-	     res.render("index.ejs",{property: docs});
-	    })
-	});
-
+	// //api trang home
+	
 	//TAO Link API lay 4 sp theo rate
   	app.get("/hot_product", function(req,res){
 		collection.find({}).sort({rating: -1}).limit(4).toArray(function (err, result) {
