@@ -35,7 +35,7 @@ const multerConfig = {
 	storage: multer.diskStorage({
 	 //Setup where the user's file will go
 	 destination: function(req, file, next){
-	   next(null, './public/uploads');
+	   next(null, './public/backend/uploads');
 	   },   
 	    
 	    //Then give the file a unique name
@@ -213,39 +213,7 @@ MongoClient.connect(url, function (err, db) {
   	});
   	//-------------------------------------------------------------------------------------------------
   	//them sp
-  // 	app.post("/save-products",upload.single("image"),function(req,res){
-  //       var originalFileName = req.file.originalname;
-  //       var id = req.body.id;
-  //       var name = req.body.name;
-  //       var rating = req.body.rating;
-  //       var desc = req.body.desc;
-  //       var type = req.body.type;
-		// var price = req.body.price;
-		// var comment = req.body.comment;
-  //       var image_link = "/backend/uploads/"+originalFileName;
-  //       var product = {
-  //           id: id,
-  //           name: name,
-  //           rating: rating,
-  //           desc: desc,
-  //           type: type,
-  //           price: price,
-		// 	comment: comment,
-  //           image_link: image_link
-  //       };
-  //       collection.insert([product], function (err, result) {
-  //         if (err) {
-  //         	notifier.notify('Thất bại!');
-  //           res.send("error");
-  //        } else {
-  //        	notifier.notify('Thêm thành công!');
-  //        	res.redirect('/backend/index.html#!/sp');
-  //           // res.send('Inserted');
-  //         }
-  //       });
-  //   });
-
-  app.post("/save-products",upload.single("image"),function(req,res){
+  	app.post("/save-products",upload.single("image"),function(req,res){
         var originalFileName = req.file.originalname;
         var id = req.body.id;
         var name = req.body.name;
@@ -254,7 +222,7 @@ MongoClient.connect(url, function (err, db) {
         var type = req.body.type;
 		var price = req.body.price;
 		var comment = req.body.comment;
-        var image_link = "/uploads/"+originalFileName;
+        var image_link = "/backend/uploads/"+originalFileName;
         var product = {
             id: id,
             name: name,
@@ -267,14 +235,17 @@ MongoClient.connect(url, function (err, db) {
         };
         collection.insert([product], function (err, result) {
           if (err) {
+          	notifier.notify('Thất bại!');
             res.send("error");
          } else {
-         	res.redirect('/index.html#!/sp');
+         	notifier.notify('Thêm thành công!');
+         	res.redirect('/backend/index.html#!/sp');
             // res.send('Inserted');
           }
         });
     });
 
+  
   	//them loai
   	app.post("/save-types",upload.single("image"),function(req,res){
         var id = req.body.id;
