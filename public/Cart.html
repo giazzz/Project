@@ -278,7 +278,7 @@
 					<div class="d26 text-center">
 	    				<form>
 							<div class="value-button" id="decrease" ng-click="removeONE(c)"><i class="fas fa-minus"></i></div>
-							<input type="number" id="number" value="{{c.count}}" readonly/>
+							<input type="number" id="number" value="{{c.count}}" ng-readonly="true"/>
 							<div class="value-button" id="increase" ng-click="addItemToCart(c)"><i class="fas fa-plus"></i></div>
 						</form>
 	    			</div>
