@@ -187,7 +187,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .comment_form-input-area, .comment_form-text-area{
 	border: 2px solid #efefef;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	background: white;
