@@ -1,6 +1,24 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
+const notifier = require('node-notifier');
+// var mongoose         = require('mongoose');
+// var mongoosePaginate = require('mongoose-paginate-v2');
+// var cookie = require('cookie');
+var session = require('express-session');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+
+app.use(session({
+  secret: 'nguyen',
+  resave: false,
+  saveUninitialized: true
+  
+}))
+ 
+
+
 // var chuyenthanhOfjectId = require('mongodb').$oid;
 //dung de chay cac file tinh html
 //----------------------------------
@@ -17,7 +35,7 @@ const multerConfig = {
 	storage: multer.diskStorage({
 	 //Setup where the user's file will go
 	 destination: function(req, file, next){
-	   next(null, './public/uploads');
+	   next(null, './public/backend/uploads');
 	   },   
 	    
 	    //Then give the file a unique name
@@ -66,140 +84,80 @@ MongoClient.connect(url, function (err, db) {
     var database = db.db();
     var collection = database.collection("products");
     var type = database.collection("type");
+    var user = database.collection("user");
 
-    //do some work here with the database.
-//     	var type1 = {
-//     		id: "40",
-//     		name: "candy crush saga"
-//     	};
-//     	//INSERT 
-//     	type.insert([type1], function (err, result) {
-// 		      if (err) {
-// 		        console.log(err);
-// 		      } else {
-// 		        console.log('Inserted');
-// 		      }
-// 	      //Close connection
-//     	});
-// //-----------------------------------------------------------------------------------------
-    	// UPDATE student with id =1:
-		// collection.update({id:1}, {$set: {student_name: 'Ha Ha Ha', birthday:'1999-12-10'}}, function (err, UpdateObj) {
-		//   if (err) {
-		//     console.log(err);
-		//   } else if (UpdateObj) {
-		//   	if(UpdateObj.result.nModified > 0){
-		//   		console.log('Updated Successfully');
-		//   	}else{
-		//     	console.log('No document found with defined "find" criteria!');
-		//   	}
-		//   }
-		//   //Close connection
-		//   db.close();
-		// });
-//--------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------
 	//Xoa type
-	app.get("/xoa/:idloai",function(req,res,next){
+	app.get("/xoaloai/:idloai",function(req,res,next){
 		// res.send("idsp is set to " + req.params.idsp);
         var idcanxoa = req.params.idloai;
-        res.send("ID can xoa da lay dc = "+idcanxoa);
+        // res.send("ID can xoa da lay dc = "+idcanxoa);
 		type.deleteOne({id: idcanxoa}, function (err,res) {
 	        if (err) {
+	        notifier.notify('Thất bại!');
             res.send("error");
+
          } else {
+         	notifier.notify('Xóa thành công!');
             // res.send('Inserted');
-	        // res.redirect('/index.html#!/loai');
 	        console.log('delete success: ' + res.result.n + ' record');
           }
 	    });
-
-   });
+		res.redirect('/backend/index.html#!/loai');
+   	});
 	//Xoa sp
 	app.get("/xoasp/:idsp",function(req,res,next){
 		// res.send("idsp is set to " + req.params.idsp);
         var idcanxoa = req.params.idsp;
-        res.send("ID can xoa da lay dc = "+idcanxoa);
+        // res.send("ID can xoa da lay dc = "+idcanxoa);
 		collection.deleteOne({id: idcanxoa}, function (err,res) {
 	        if (err) {
+	        notifier.notify('Thất bại!');
             res.send("error");
-         } else {
-         	// res.redirect('/index.html#!/sp');
-	        console.log('delete success: ' + res.result.n + ' record');
-            // res.send('Inserted');
-          }
-          
-         	
-	    });
-   });
-//sua du lieu loai
-	app.get("/sua/:idloai",function(req,res,next){
-		// res.send("idsp is set to " + req.params.idsp);
-        var idcansua = req.params.idloai;
-        res.send("ID can sua da lay dc = "+idcansua);
-		//truy van du lieu co id can sua
-		type.find({id:idcansua}).toArray(function (err, result) {
-		      if (err) {
-		        console.log(err);
-		      } else if (result.length) {
-		        console.log('Found:', result);
-		      } else {
-		        console.log('No document(s) found with defined "find" criteria!');
-		      }
-		    });
-		app.get("/typeedit", function(req,res){
-				type.find({id:idcansua}).toArray(function (err, result) {
-			      if (err) {
-			        res.send({
-			        	status: 0,
-			        	message:'fail'
-			        });
-			      } else {
-			        if (result.length){
-			        	res.send({
-				        	status: 0,
-				        	message:'Successfully!',
-				        	data: result
-			        	});
-			        }else{
-			        	res.send({
-				        	status: 0,
-				        	message:'Successfully!',
-				        	data: []
-			        	});
-			        }
-			      }
 
-			    });
-		  	});
-		 app.post("/update-products",upload.single("image"),function(req,res){
+         } else {
+         	notifier.notify('Xóa thành công!');
+	        console.log('delete success: ' + res.result.n + ' record');
+          }
+	    });
+		res.redirect('/backend/index.html#!/sp');
+   	});
+	//-------------------------------------------------------------------------------------	
+	//sua du lieu loai
+		//lay du lieu tu form day len CSDL
+		app.post("/update_types",upload.single("image"),function(req,res){
+			var idcansua = req.body.id;
 	        var name = req.body.name;
-	        // res.send(idcansua);
+	        console.log(idcansua);
+	        console.log(name);
 	        type.updateOne({id:idcansua}, {$set: {id:idcansua, name:name}}, function (err,res) {
 		        if (err) throw err;
-		        // res.send('update success: ' + res.result.nModified + ' record');
 		        console.log('update success: ' + res.result.nModified + ' record');
 		    });
+		    notifier.notify('Sửa thành công!');
+		    res.redirect('/backend/index.html#!/loai');
 	    });
-
-   });
-	//edit giang
-
+   	// });
+	//sua du lieu sp
+		app.post("/update-products",upload.single("image"),function(req,res){
+	        var originalFileName = req.file.originalname;
+	        var idcansua = req.body.id;
+	        var name = req.body.name;
+	        var rating = req.body.rating;
+	        var desc = req.body.desc;
+	        var type = req.body.type;
+			var price = req.body.price;
+			var comment = req.body.comment;
+	        var image_link = "/backend/uploads/"+originalFileName;
+	        collection.updateOne({id:idcansua}, {$set: {id:idcansua, name:name, rating:rating, desc:desc, type:type, price:price, comment:comment, image_link:image_link}}, function (err,res) {
+		        if (err) throw err;
+		        console.log('update success: ' + res.result.nModified + ' record');
+		    });
+		    notifier.notify('Sửa thành công!');
+		    
+	    });
  		
-//------------------------------------------------------------------------------------------
-		// //LIET KE Object id = 1 (nếu để trống <=> ko truyền tham số => liệt kê tất cả)
-		// collection.find({type:'dairy'}).toArray(function (err, result) {
-		//       if (err) {
-		//         console.log(err);
-		//       } else if (result.length) {
-		//         console.log('Found:', result);
-		//       } else {
-		//         console.log('No document(s) found with defined "find" criteria!');
-		//       }
-		//       //Close connection
-		//       db.close();
-		//     });
-  //   //Close connection
-  //   db.close();
-//-----------------------------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------
 	//TAO Link API lay toan bo sp
   	app.get("/all_product", function(req,res){
 		collection.find({}).toArray(function (err, result) {
@@ -252,9 +210,9 @@ MongoClient.connect(url, function (err, db) {
 
 	    });
   	});
-
+  	//-------------------------------------------------------------------------------------------------
   	//them sp
-  	 app.post("/save-products",upload.single("image"),function(req,res){
+  	app.post("/save-products",upload.single("image"),function(req,res){
         var originalFileName = req.file.originalname;
         var id = req.body.id;
         var name = req.body.name;
@@ -263,7 +221,7 @@ MongoClient.connect(url, function (err, db) {
         var type = req.body.type;
 		var price = req.body.price;
 		var comment = req.body.comment;
-        var image_link = "/uploads/"+originalFileName;
+        var image_link = "/backend/uploads/"+originalFileName;
         var product = {
             id: id,
             name: name,
@@ -276,39 +234,16 @@ MongoClient.connect(url, function (err, db) {
         };
         collection.insert([product], function (err, result) {
           if (err) {
+          	notifier.notify('Thất bại!');
             res.send("error");
          } else {
-         	res.redirect('/index.html#!/sp');
+         	notifier.notify('Thêm thành công!');
+         	res.redirect('/backend/index.html#!/sp');
             // res.send('Inserted');
           }
         });
     });
-  	 //sua sp
-/*  	 app.post("/updateloai",upload.single("image"),function(req,res){
-        var originalFileName = req.file.originalname;
-        var id = req.body.id;
-        var name = req.body.name;
-        var rating = req.body.rating;
-        var desc = req.body.desc;
-        var type = req.body.type;
-		var price = req.body.price;
-		var comment = req.body.comment;
-        var image_link = "/uploads/"+originalFileName;
-        colsole.log(name);
-        collection.update({id:id}, {$set: {student_name: 'Ha Ha Ha', birthday:'1999-12-10'}}, function (err, UpdateObj) {
-		  if (err) {
-		    console.log(err);
-		  } else if (UpdateObj) {
-		  	if(UpdateObj.result.nModified > 0){
-		  		console.log('Updated Successfully');
-		  	}else{
-		    	console.log('No document found with defined "find" criteria!');
-		  	}
-		  }
-		  //Close connection
-		  db.close();
-		});
-    });*/
+
   	//them loai
   	app.post("/save-types",upload.single("image"),function(req,res){
         var id = req.body.id;
@@ -317,18 +252,245 @@ MongoClient.connect(url, function (err, db) {
             id: id,
             name: name,
         };
+        console.log(loai);
+        console.log(id);
+        console.log(name);
         type.insert([loai], function (err, result) {
           if (err) {
+          	notifier.notify('Thất bại!');
             res.send("error");
          } else {
-         	res.redirect('/index.html#!/loai');
-            // res.send('Inserted');
+         	// String
+			notifier.notify('Thêm thành công!');
+         	// res.send('<h1>Inserted</h1>');
+         	res.redirect('/backend/index.html#!/loai');
+
           }
         });
     });
+  	//--------------------------------------------------------------------------
+
+	//SIGN IN
+	app.post("/sign_in",upload.single("image"),function(req,res){
+		var usernamesign = req.body.username;
+	    var passwordsign = req.body.password;
+	    user.find({username: usernamesign, password: passwordsign}).toArray(function (err, result) {
+	      if (err) {
+	        res.send({
+	        	status: 0,
+	        	message:'fail'
+	        });
+	      } else {
+	        if (result.length){
+	        	
+	        	app.get("/user", function(req,res){
+					res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: result
+	        		});
+	        		// console.log(result);
+			  	});
+	        	res.redirect('/backend/index.html')
+
+	        }else{
+	        	notifier.notify('Nhập lại!'),
+	        	res.redirect('/backend/admin.html')
+	        }
+	      }
+
+	    });
+	});
+
+
+		// SESSION
+  	app.get('/taosession',function(req, res, next){
+  		req.session.shop = "Cart";
+  		res.send("Da tao roi!");
+  	});
+	app.get('/laysession',function(req, res, next){	
+  		res.send("Session la" + req.session.shop);
+  	});
+  	app.get('/huysession',function(req, res, next){
+  		req.session.destroy(function(err){
+  			console.log(err);
+  		});
+  		res.send("Session da huy");
+  	});
+
+
+  	//Lay id san pham day vao session
+  	app.get("/them-shop/:idsanpham",function(req,res,next){
+  		var idsp = req.params.idsanpham;
+  		if (!req.session.shop){
+  			req.session.shop = [];
+  		}
+  		req.session.shop.push(idsp);
+			// res.send("Session la" + req.session.shop);
+			console.log("Trong session shop co " + req.session.shop);
+		res.redirect('back');
+	});
+	//TAO Link API lay sp cho trang shop dua vao array id trong session ($in: array)
+	app.get("/shop_product", function(req,res){
+		collection.find({ id: { $in: req.session.shop } }).toArray(function (err,result) {
+			if (err) {
+				res.send({
+					status: 0,
+					message:'fail'
+				});
+			} else {
+				if (result.length){
+					// console.log(result);
+					res.send({
+						status: 0,
+						message:'Successfully!',
+						data: result
+					});
+				}else{
+					res.send({
+						status: 0,
+						message:'Successfully!',
+						data: []
+					});
+				}
+			}
+		});
+	});
+	//Lay id san pham xoa khoi session
+  	app.get("/xoa-shop/:idsanpham",function(req,res,next){
+  		var idsp = req.params.idsanpham;
+  		req.session.shop.pop(idsp);
+		console.log("da xoa khoi session id:  " + req.session.shop);
+		res.redirect('back');
+	});
+	//Lay id san pham cho trang chi tiet
+  	app.get("/chi-tiet/:idsanpham",function(req,res,next){
+  		var idsp = req.params.idsanpham;
+  		req.session.chi_tiet = [];
+  		req.session.chi_tiet.push(idsp);
+		res.redirect('/Detail.html');
+	});
+	//TAO Link API lay sp cho trang chi tiet dua vao trong session ($in: array)
+	app.get("/chi_tiet_product", function(req,res){
+		collection.find({ id: { $in: req.session.chi_tiet } }).toArray(function (err,result) {
+			if (err) {
+				res.send({
+					status: 0,
+					message:'fail'
+				});
+			} else {
+				if (result.length){
+					// console.log(result);
+					res.send({
+						status: 0,
+						message:'Successfully!',
+						data: result
+					});
+				}else{
+					res.send({
+						status: 0,
+						message:'Successfully!',
+						data: []
+					});
+				}
+			}
+		});
+	});	
+
+	//api trang home
+	/* app.get('/', function(req, res){       
+	    db.property.find({}).sort({timestamp: -1}).limit(1).toArray(function (err, docs) {
+	     res.render("home.html",{property: docs});
+	    })
+	}); */
+
+	//TAO Link API lay 4 sp theo rate
+  	app.get("/hot_product", function(req,res){
+		collection.find({}).sort({rating: -1}).limit(4).toArray(function (err, result) {
+	      if (err) {
+	        res.send({
+	        	status: 0,
+	        	message:'fail'
+	        });
+	      } else {
+	        if (result.length){
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: result
+	        	});
+	        	// console.log(result);
+	        }else{
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: []
+	        	});
+	        }
+	      }
+
+	    });
+  	});
+  	// db.mycoll.aggregate([{ $sample: { size: 1 } }])
+  	//TAO Link API lay random 3 sp
+  	app.get("/random_product", function(req,res){
+		collection.aggregate([{ $sample: { size: 3 } }]).toArray(function (err, result) {
+	      if (err) {
+	        res.send({
+	        	status: 0,
+	        	message:'fail'
+	        });
+	      } else {
+	        if (result.length){
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: result
+	        	});
+	        	// console.log(result);
+	        }else{
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: []
+	        	});
+	        }
+	      }
+
+	    });
+  	});
+  	//TAO Link API lay random 4 sp
+  	app.get("/random_4_product", function(req,res){
+		collection.aggregate([{ $sample: { size: 4 } }]).toArray(function (err, result) {
+	      if (err) {
+	        res.send({
+	        	status: 0,
+	        	message:'fail'
+	        });
+	      } else {
+	        if (result.length){
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: result
+	        	});
+	        	// console.log(result);
+	        }else{
+	        	res.send({
+		        	status: 0,
+		        	message:'Successfully!',
+		        	data: []
+	        	});
+	        }
+	      }
+
+	    });
+  	});
+
 
 
 
 
   }
 });
+

@@ -1,0 +1,165 @@
+.c{
+	padding: 30px 15px;
+}
+.d{
+	padding-bottom: 50px;
+}
+.d1{
+	border: 2px solid #f4f6f8;
+	border-radius: 10px;
+	padding: 0 !important;
+}
+.d11{
+	border-radius: 10px;
+	background-image: url(../images/nguyen.jpg);
+	filter: blur(1px);
+	-webkit-filter: blur(1px);
+	height: 470px;
+	background-size: cover;
+}
+.d12{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 200px;
+}
+.d2{
+	padding-left: 30px !important;
+}
+.d21{
+	font-size: 32px;
+	height: 110px;
+	padding-bottom: 15px;
+	color: #000615;
+}
+.d22{
+	font-size: 18px;
+	color: #797979;
+	padding-bottom: 15px;
+}
+.d23{
+	font-size: 16px;
+	color: #3f3f3f;
+	padding-bottom: 15px;
+}
+.d24{
+	font-size: 24px;
+	padding-bottom: 15px;
+}
+.d25{
+	font-size: 15px;
+	color: #797979;
+	padding-bottom: 15px;
+}
+.e{
+	padding-bottom: 50px;
+}
+.e1{
+	font-size: 22px;
+	padding-bottom: 15px;
+	color: #000615;
+}
+.e2{
+	padding: 0 !important;
+}
+
+.recipe{
+	padding: 0 !important;
+	max-height: 450px;
+}
+.f{
+	padding-bottom: 50px;
+}
+.f1{
+	font-size: 22px;
+	padding-bottom: 15px;
+	color: #000615;
+}
+.detail1{
+	border: none;
+	background-color: #fcfcfc;
+}
+.detail2{
+	border: 1px solid #f4f6f8;
+	width: auto;
+	margin: 15px;
+	padding: 0;
+	height: 420px;
+}
+.detail3{
+	height: 70px;
+}
+.g1{
+	font-size: 22px;
+	padding-bottom: 30px;
+}
+/*Quantity*/
+form {
+	padding-bottom: 30px;
+}
+
+.value-button {
+	display: inline-block;
+	font-size: 24px;
+	color: #73b043;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.value-button:hover {
+	cursor: pointer;
+}
+
+form #decrease {
+	margin-right: -4px;
+	border-radius: 8px 0 0 8px;
+}
+
+form #increase {
+	margin-left: -4px;
+	border-radius: 0 8px 8px 0;
+}
+
+form #input-wrap {
+	margin: 0px;
+	padding: 0px;
+}
+
+input#number {
+	font-size: 28px;
+	text-align: center;
+	border: 2px solid #73b043;
+	background-color: #fff;
+	color: #73b043;
+	border-radius: 20px;
+	width: 80px;
+	height: 36px;
+	padding-bottom: 4px;
+	outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+/*.span_count{
+	float: left;
+	font-size: 28px;
+	text-align: center;
+	border: 2px solid #73b043;
+	background-color: #fff;
+	color: #73b043;
+	border-radius: 20px;
+	width: 80px;
+	height: 36px;
+	padding-bottom: 4px;
+	/*outline: none;*/
