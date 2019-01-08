@@ -35,7 +35,7 @@ const multerConfig = {
 	storage: multer.diskStorage({
 	 //Setup where the user's file will go
 	 destination: function(req, file, next){
-	   next(null, './public/backend/uploads');
+	   next(null, './public/uploads');
 	   },   
 	    
 	    //Then give the file a unique name
@@ -85,6 +85,7 @@ MongoClient.connect(url, function (err, db) {
     var collection = database.collection("products");
     var type = database.collection("type");
     var user = database.collection("user");
+    var comments = database.collection("comments");
 
 	//--------------------------------------------------------------------------------------
 	//Xoa type
@@ -212,7 +213,39 @@ MongoClient.connect(url, function (err, db) {
   	});
   	//-------------------------------------------------------------------------------------------------
   	//them sp
-  	app.post("/save-products",upload.single("image"),function(req,res){
+  // 	app.post("/save-products",upload.single("image"),function(req,res){
+  //       var originalFileName = req.file.originalname;
+  //       var id = req.body.id;
+  //       var name = req.body.name;
+  //       var rating = req.body.rating;
+  //       var desc = req.body.desc;
+  //       var type = req.body.type;
+		// var price = req.body.price;
+		// var comment = req.body.comment;
+  //       var image_link = "/backend/uploads/"+originalFileName;
+  //       var product = {
+  //           id: id,
+  //           name: name,
+  //           rating: rating,
+  //           desc: desc,
+  //           type: type,
+  //           price: price,
+		// 	comment: comment,
+  //           image_link: image_link
+  //       };
+  //       collection.insert([product], function (err, result) {
+  //         if (err) {
+  //         	notifier.notify('Thất bại!');
+  //           res.send("error");
+  //        } else {
+  //        	notifier.notify('Thêm thành công!');
+  //        	res.redirect('/backend/index.html#!/sp');
+  //           // res.send('Inserted');
+  //         }
+  //       });
+  //   });
+
+  app.post("/save-products",upload.single("image"),function(req,res){
         var originalFileName = req.file.originalname;
         var id = req.body.id;
         var name = req.body.name;
@@ -221,7 +254,7 @@ MongoClient.connect(url, function (err, db) {
         var type = req.body.type;
 		var price = req.body.price;
 		var comment = req.body.comment;
-        var image_link = "/backend/uploads/"+originalFileName;
+        var image_link = "/uploads/"+originalFileName;
         var product = {
             id: id,
             name: name,
@@ -234,11 +267,9 @@ MongoClient.connect(url, function (err, db) {
         };
         collection.insert([product], function (err, result) {
           if (err) {
-          	notifier.notify('Thất bại!');
             res.send("error");
          } else {
-         	notifier.notify('Thêm thành công!');
-         	res.redirect('/backend/index.html#!/sp');
+         	res.redirect('/index.html#!/sp');
             // res.send('Inserted');
           }
         });
@@ -368,6 +399,8 @@ MongoClient.connect(url, function (err, db) {
   		var idsp = req.params.idsanpham;
   		req.session.chi_tiet = [];
   		req.session.chi_tiet.push(idsp);
+  		// console.log(req.session.chi_tiet);
+  		// console.log(req.session.chi_tiet[0]);
 		res.redirect('/Detail.html');
 	});
 	//TAO Link API lay sp cho trang chi tiet dua vao trong session ($in: array)
@@ -481,6 +514,64 @@ MongoClient.connect(url, function (err, db) {
 
 	    });
   	});
+
+
+//comment
+  	app.post("/add-comment",upload.single("image"),function(req,res){
+        var idsp = req.session.chi_tiet[0];
+        var name = req.body.name;
+        var email = req.body.email;
+        var content = req.body.content;
+        var date1 = new Date();
+        var date = date1.toString();
+        var comment = {
+            idsp: idsp,
+            name: name,
+            email: email,
+            content: content,
+            date: date,
+        };
+        console.log(name);
+        comments.insert([comment], function (err, result) {
+          if (err) {
+          	notifier.notify('Thất bại!');
+            res.send("error");
+         } else {
+         	notifier.notify('Thêm thành công!');
+         	res.redirect('/detail.html');
+            // res.send('Inserted');
+          }
+        });
+    });
+
+  	//Load coment theo idsp
+  	app.get("/comment", function(req,res){
+  		var idsp = req.session.chi_tiet[0];
+		comments.find({ idsp: idsp }).toArray(function (err,result) {
+			if (err) {
+				res.send({
+					status: 0,
+					message:'fail'
+				});
+			} else {
+				if (result.length){
+					// console.log(result);
+					res.send({
+						status: 0,
+						message:'Successfully!',
+						data: result
+					});
+				}else{
+					res.send({
+						status: 0,
+						message:'Successfully!',
+						data: []
+					});
+				}
+			}
+		});
+	});
+
 
 
 

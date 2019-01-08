@@ -429,6 +429,59 @@
 							
 						</div>
 					</div>
+								<!--Comment-->
+				<form class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="comment_form" method="post" action="/add-comment" enctype="multipart/form-data">
+					<h2 style="margin-bottom: 20px;">Leave Us A Comment</h2>
+					<div class="comment_form-name-area comment_form-input-area col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<input type="text" name="name" id="name" placeholder="Name *">
+					</div>
+					<div class="comment-name-alert input-comment-alert">
+						*Your name have to be 10 characters long at least.
+					</div>
+					<div class="comment_form-email-area comment_form-input-area col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<input type="email" name="email" id="email" placeholder="Email *">
+					</div>
+					<div class="comment-email-alert input-comment-alert">
+						*Your email is not valid.
+					</div>
+					<div class="comment_form-comment-area comment_form-text-area col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<textarea rows="10" type="text" name="content" id="comment" placeholder="Comment"></textarea>
+					</div>
+					<div class="comment-text-alert input-comment-alert">
+						*Your comment has to be more than 50 characters and less than 250 characters long.
+					</div>
+
+
+					<div class="col-xs-2 col-sm-4 col-md-5 col-lg-5"></div>
+					<div class="comment_form-submit-area col-xs-8 col-sm-4 col-md-2 col-lg-2">
+						<input type="submit" name="submit" value="Add Comment">
+					</div>
+					
+
+
+					<div class="col-xs-2 col-sm-4 col-md-5 col-lg-5"></div>
+				</form>
+				
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 comment-list">
+					<h3 style="margin-bottom: 15px;">Comments (<span class="comment-count">{{comments.length}}</span>)</h3>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 comment" ng-repeat="c in comments">
+						<p class="comment-owner-name"><span>{{c.name}}</span></p>
+						<p class="comment-content"><span>{{c.content}}</span></p>
+						<p class="comment-time"><span>{{c.date}}</p>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 show-hide-full-cmt-list">
+					</div>
+					<script>
+						$('.show-hide-full-cmt-list').click(function() {
+							$(this).hide();
+							$('.comment-list').css({
+								'max-height': 'none'
+							});
+						});
+					</script>
+				</div>
+				<!--End comment-->
 				<div class="col-xs-12 g">
 					<div class="g1">
 						<span>Enjoy 10% Off Next Order</span>
@@ -599,3 +652,11 @@
 </body>
 
 </html>
+<script>
+	// Get current date
+	n =  new Date();
+	y = n.getFullYear();
+	m = n.getMonth() + 1;
+	d = n.getDate();
+	document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+</script>

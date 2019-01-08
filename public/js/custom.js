@@ -59,6 +59,12 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
       $rootScope.rd = result.data.data;
       // console.log(result);
     });
+    
+    $http.get('/comment').
+    then(function(result, status, headers, config) {
+      $rootScope.comments = result.data.data;
+      // console.log(result);
+    });
 
     
     // ADD TO CART
