@@ -1,0 +1,87 @@
+.section3{
+	background-color: #fcfcfc;
+}
+.user{
+	color: #73b043;
+}
+.k{
+	padding: 0;
+}
+.k1{
+	height: 5px;
+	background-color: #73b043;
+}
+.k11{
+	padding-left: 15px;
+}
+#k12{
+	text-decoration: none;
+	color: #73b043;
+}
+.k13{
+	color: #73b043;
+}
+.panel{
+	border-radius: 0 !important;
+}
+
+#login1{
+	background-color: #73b043;
+	font-size: 24px;
+	width: 100px;
+	color: #fff;
+	border-radius: 40px;
+	outline: none;
+}
+#apply1{
+	background-color: #73b043;
+	font-size: 24px;
+	width: 140px;
+	color: #fff;
+	border-radius: 40px;
+	outline: none;
+}
+.l{
+	padding: 15px;
+	border: 1px solid #d3ced2;
+	border-radius: 5px; 
+}
+.l1{
+	font-size: 30px;
+	color: #73b043;
+	padding-bottom: 15px;
+}
+
+.required-field::after {
+    content: "*";
+    color: red;
+}
+.hiding{
+	display:none;
+}
+.form-alert{
+	color:red;
+	font-size:18px;
+}
+.form-control:focus {
+  border-color: rgb(5, 206, 32);
+  box-shadow: inset 0 1px 1px rgba(8, 8, 8, 0.075), 0 0 8px rgba(10, 243, 22, 0.8);
+}
+#placeorder1{
+	background-color: #73b043;
+	font-size: 24px;
+	width: 140px;
+	color: #fff;
+	border-radius: 40px;
+	outline: none;
+}
+#placeorder1 a{
+	color: #fff;
+}
+#placeorder1:hover{
+	border: 2px solid #73b043;
+	background: white;
+}
+#placeorder1:hover a{
+	color: #73b043;
+}
