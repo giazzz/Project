@@ -85,6 +85,7 @@ MongoClient.connect(url, function (err, db) {
     var collection = database.collection("products");
     var type = database.collection("type");
     var user = database.collection("user");
+    var comments = database.collection("comments");
 
 	//--------------------------------------------------------------------------------------
 	//Xoa type
@@ -160,7 +161,7 @@ MongoClient.connect(url, function (err, db) {
 	//-----------------------------------------------------------------------------------------------
 	//TAO Link API lay toan bo sp
   	app.get("/all_product", function(req,res){
-		collection.find({}).toArray(function (err, result) {
+		collection.find({}).sort({id: 1}).toArray(function (err, result) {
 	      if (err) {
 	        res.send({
 	        	status: 0,
@@ -186,7 +187,7 @@ MongoClient.connect(url, function (err, db) {
   	});
   	//Tao link api lay type
   	app.get("/type", function(req,res){
-		type.find({}).toArray(function (err, result) {
+		type.find({}).sort({id: 1}).toArray(function (err, result) {
 	      if (err) {
 	        res.send({
 	        	status: 0,
@@ -244,6 +245,7 @@ MongoClient.connect(url, function (err, db) {
         });
     });
 
+  
   	//them loai
   	app.post("/save-types",upload.single("image"),function(req,res){
         var id = req.body.id;
@@ -368,6 +370,8 @@ MongoClient.connect(url, function (err, db) {
   		var idsp = req.params.idsanpham;
   		req.session.chi_tiet = [];
   		req.session.chi_tiet.push(idsp);
+  		// console.log(req.session.chi_tiet);
+  		// console.log(req.session.chi_tiet[0]);
 		res.redirect('/Detail.html');
 	});
 	//TAO Link API lay sp cho trang chi tiet dua vao trong session ($in: array)
@@ -397,13 +401,8 @@ MongoClient.connect(url, function (err, db) {
 		});
 	});	
 
-	//api trang home
-	app.get('/', function(req, res){       
-	    db.property.find({}).sort({timestamp: -1}).limit(1).toArray(function (err, docs) {
-	     res.render("index.ejs",{property: docs});
-	    })
-	});
-
+	// //api trang home
+	
 	//TAO Link API lay 4 sp theo rate
   	app.get("/hot_product", function(req,res){
 		collection.find({}).sort({rating: -1}).limit(4).toArray(function (err, result) {
@@ -419,7 +418,7 @@ MongoClient.connect(url, function (err, db) {
 		        	message:'Successfully!',
 		        	data: result
 	        	});
-	        	console.log(result);
+	        	// console.log(result);
 	        }else{
 	        	res.send({
 		        	status: 0,
@@ -447,7 +446,7 @@ MongoClient.connect(url, function (err, db) {
 		        	message:'Successfully!',
 		        	data: result
 	        	});
-	        	console.log(result);
+	        	// console.log(result);
 	        }else{
 	        	res.send({
 		        	status: 0,
@@ -474,7 +473,7 @@ MongoClient.connect(url, function (err, db) {
 		        	message:'Successfully!',
 		        	data: result
 	        	});
-	        	console.log(result);
+	        	// console.log(result);
 	        }else{
 	        	res.send({
 		        	status: 0,
@@ -486,6 +485,64 @@ MongoClient.connect(url, function (err, db) {
 
 	    });
   	});
+
+
+//comment
+  	app.post("/add-comment",upload.single("image"),function(req,res){
+        var idsp = req.session.chi_tiet[0];
+        var name = req.body.name;
+        var email = req.body.email;
+        var content = req.body.content;
+        var date1 = new Date();
+        var date = date1.toString();
+        var comment = {
+            idsp: idsp,
+            name: name,
+            email: email,
+            content: content,
+            date: date,
+        };
+        console.log(name);
+        comments.insert([comment], function (err, result) {
+          if (err) {
+          	notifier.notify('Thất bại!');
+            res.send("error");
+         } else {
+         	notifier.notify('Thêm thành công!');
+         	res.redirect('/detail.html');
+            // res.send('Inserted');
+          }
+        });
+    });
+
+  	//Load coment theo idsp
+  	app.get("/comment", function(req,res){
+  		var idsp = req.session.chi_tiet[0];
+		comments.find({ idsp: idsp }).toArray(function (err,result) {
+			if (err) {
+				res.send({
+					status: 0,
+					message:'fail'
+				});
+			} else {
+				if (result.length){
+					// console.log(result);
+					res.send({
+						status: 0,
+						message:'Successfully!',
+						data: result
+					});
+				}else{
+					res.send({
+						status: 0,
+						message:'Successfully!',
+						data: []
+					});
+				}
+			}
+		});
+	});
+
 
 
 
