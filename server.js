@@ -161,7 +161,7 @@ MongoClient.connect(url, function (err, db) {
 	//-----------------------------------------------------------------------------------------------
 	//TAO Link API lay toan bo sp
   	app.get("/all_product", function(req,res){
-		collection.find({}).toArray(function (err, result) {
+		collection.find({}).sort({id: 1}).toArray(function (err, result) {
 	      if (err) {
 	        res.send({
 	        	status: 0,
@@ -187,7 +187,7 @@ MongoClient.connect(url, function (err, db) {
   	});
   	//Tao link api lay type
   	app.get("/type", function(req,res){
-		type.find({}).toArray(function (err, result) {
+		type.find({}).sort({id: 1}).toArray(function (err, result) {
 	      if (err) {
 	        res.send({
 	        	status: 0,

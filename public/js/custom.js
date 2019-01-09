@@ -149,6 +149,7 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
       //Truong hop chua add to cart trc khi vao trang detail
       if(check == false){
         product.count =1;
+
         product.count = $scope.slsp;
 
         $scope.cart.push(product);
@@ -161,6 +162,8 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
         $cookies.put('total', $scope.total,  {'expires': expireDate});
 
       }
+      $scope.slsp = 1;
+      $cookies.put('slsp', $scope.slsp,  {'expires': expireDate}); 
     };
 
      // XOA HAN SP
