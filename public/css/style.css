@@ -319,6 +319,7 @@ li{
 .pagination > .disabled > a:focus {
   color: #777;
   cursor: not-allowed;
+  /*cursor: none;*/
   border-color: #ddd;
 }
 .pagination-lg > li > a,

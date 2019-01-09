@@ -5,11 +5,14 @@ app.config(['$routeProvider',function($routeProvider) {
     .when("/", {
         templateUrl : "home.html"
     })
+    .when("/bill", {
+        templateUrl : "Bill-Order.html"
+    })
     
     .otherwise({ redirectTo: '/' });
   }]);
 
-app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$cookies,$cookieStore){
+app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$cookies,$cookieStore,$location){
   $rootScope.pageSize = 9;
   $rootScope.currentPage = 1;
   $scope.filters = { };
@@ -204,7 +207,7 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
       $cookies.put('loaisp', $scope.loaisp,  {'expires': expireDate});      
     };
     //Chon phuong thuc thanh toan
-    $scope.pay = "";
+    $scope.pay = "Direct bank transfer";
     if(!angular.isUndefined($cookies.get('pay'))){
       $scope.pay = $cookies.get('pay');
     }

@@ -67,21 +67,26 @@
   border-color: rgb(5, 206, 32);
   box-shadow: inset 0 1px 1px rgba(8, 8, 8, 0.075), 0 0 8px rgba(10, 243, 22, 0.8);
 }
+/* Chỗ Dũng Sửa */
 #placeorder1{
 	background-color: #73b043;
-	font-size: 24px;
-	width: 140px;
 	color: #fff;
 	border-radius: 40px;
 	outline: none;
-}
-#placeorder1 a{
+	padding: 0 14px;
 	color: #fff;
+	line-height: 28px;
 }
 #placeorder1:hover{
-	border: 2px solid #73b043;
+	border: 1px solid #73b043;
 	background: white;
-}
-#placeorder1:hover a{
 	color: #73b043;
 }
+.l .form-control-feedback{
+	top: 30px !important;
+	right: 5px;
+}
+.l .form-group.col-md-6 .form-control-feedback{
+	right: 20px;
+}
+/* Chỗ Dũng Sửa */
