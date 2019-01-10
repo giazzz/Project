@@ -204,7 +204,7 @@ app.controller("dataController",function($scope,$rootScope,$routeParams,$http,$c
       $cookies.put('loaisp', $scope.loaisp,  {'expires': expireDate});      
     };
     //Chon phuong thuc thanh toan
-    $scope.pay = "";
+    $scope.pay = "Direct bank transfer";
     if(!angular.isUndefined($cookies.get('pay'))){
       $scope.pay = $cookies.get('pay');
     }

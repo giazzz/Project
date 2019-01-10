@@ -47,7 +47,6 @@ li{
 	color: #80838a;
 }
 .lista:hover{
-	color: #23527c;
 	text-decoration: none;
 }
 #b{
@@ -373,7 +372,7 @@ dir-pagination-controls {
 	font-weight: 400;
 }
 .category > label:hover{
-	color: #23527c;
+	color: #73b043;
 }
 .viewcart > a{
 	color: #73b043;
@@ -384,3 +383,4 @@ dir-pagination-controls {
 .fa-times-circle{
 	cursor: pointer;
 }
+

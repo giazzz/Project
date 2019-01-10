@@ -357,8 +357,9 @@
 .email-form-content:hover, .email-form-content:focus, .email-form-content:visited{
 	border-color: #7dbb4c;
 }
-.current-page-laptop-desktop{
-	background-color: #ddd !important;
+input{
+	outline: none;
+}
 
 
 

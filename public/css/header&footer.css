@@ -502,6 +502,7 @@ body::-webkit-scrollbar {
 	transition: all 0.7s ease;
 }
 .inside-list li:hover{ 
+	color: white;
 	background: #73b043;
 }
 .inside-list li.selected{
